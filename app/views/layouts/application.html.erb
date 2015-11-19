@@ -50,13 +50,50 @@
 
 
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="image-cropper">
+                <img src="http://www.cbc.ca/strombo/content/images/Morgan-Freeman-The-Hour.jpg" class="rounded" />
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <h5>Morgan Freeman and Chevy Chase</h5>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <p>Diamond Heights</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <h6><b>Parenting Mission</b></h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <p>As parents, we are interested in creating habits of thought, reading, writing, and speaking which go beneath surface meaning, first impressions, dominant myths, official pronouncements, traditional clichés, received wisdom, and mere opinions, to understand the deep meaning, root causes, social context, ideology, and personal consequences of any action, event, object, process, organization, experience, text, subject matter, policy, mass media, or discourse.</p>
+          </div>
+        </div>
+
+
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+    </div>
   </div>
 
   <main class="mdl-layout__content">
@@ -73,6 +110,28 @@
 
 </body>
 <style>
+
+.image-cropper {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.left-navigation {
+  width:215px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
 .page-content {
 	padding-left: 30px;
 }
