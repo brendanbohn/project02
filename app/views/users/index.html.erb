@@ -1,112 +1,52 @@
-<!-- Wide card with share menu button -->
-<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+<% @users.each do |user| %>
+	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+		<div class="mdl-card__supporting-text">
+			<div class="container">
+				<div class="row"><!-- PARENT INFO ROW -->
+					<div class="col-md-2">
+						<%= image_tag "#{rand(7)}.png", :class => "avatar-parent" %>
+					</div>
+					<div class="col-md-7" id="parent-header">
+						<h4 class="parent_name"><%= user[:username] %></h4>
+						<h6><%= user[:city]  %></h6>
+						<p><%= user[:bio]  %></p>
+					</div>
+				</div> <!-- end row -->
+				<div class="row">
 
+				  <div class="col-sm-5">
+				    <div class="row">
+				      <div class="col-sm-6">
+				        <!-- Image goes here -->
+				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				      </div>
+				      <div class="col-sm-6">
+				        <!-- Age, etc. goes here -->
+				        <h5>James, 6</h5>
+				      </div>
+				    </div>
+				  </div>
 
+				  <div class="col-sm-5">
+				    <div class="row">
+				      <div class="col-sm-6">
+				        <!-- Image goes here -->
+				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				      </div>
+				      <div class="col-sm-6">
+				        <!-- Age, etc. goes here -->
+				        <h5>James, 6</h5>
+				      </div>
+				    </div>
+				  </div>
 
-<!--   <div class="mdl-card__title">
-  <img class="avatar-parent" src="http://i.imgur.com/qlucnfY.png">
-    <h4 class="parent_name">Parent Name</h4>
-
-  </div> -->
-
-
-
-
-
-
-<div class="mdl-card__supporting-text">
-	<div class="container">
-		<div class="row"><!-- PARENT INFO ROW -->
-			<div class="col-md-2">
-				<img class="avatar-parent" src="http://i.imgur.com/6p1kInz.png">
-			</div>
-			<div class="col-md-7" id="parent-header">
-				<h4 class="parent_name">Parent Name</h4>
-				<h6>Duboce Triangle</h6>
-				<p>Our mission Statement is that children orem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</p>
-			</div>
-		</div> <!-- end row -->
-		<div class="row">
-		  <div class="col-sm-5">
-		    <div class="row">
-		      <div class="col-sm-6">
-		        <!-- Image goes here -->
-		        <img class="avatar-child" src="http://i.imgur.com/LXDoyGk.png">
-		      </div>
-		      <div class="col-sm-6">
-		        <!-- Age, etc. goes here -->
-		        <h5>James, 6</h5>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-5">
-		    <div class="row">
-		      <div class="col-sm-6">
-		        <!-- Image goes here -->
-		        <img class="avatar-child" src="http://i.imgur.com/LXDoyGk.png">
-		      </div>
-		      <div class="col-sm-6">
-		        <!-- Age, etc. goes here -->
-		        <h5>James, 6</h5>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div> <!-- end container -->
-
-
-
-
-
-
-
-
-
-
-</div> <!-- close mdl-card__supporting-text -->
-
-
-
-
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      View More
-    </a>
-  </div>
-
-</div>
-
-
-<style>
-.demo-card-wide.mdl-card {
-  width: 96%;
-  margin-top: 30px;
-}
-.demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
-  background-color: blue;
-}
-.demo-card-wide > .mdl-card__menu {
-  color: #fff;
-}
-/*#parent-header{
-	padding-left: 80px;
-}*/
-.avatar-parent {
-	max-width: 150px;
-}
-h6 {
-	margin-top: 0px;
-}
-h4 {
-	margin-bottom: 0px;
-	margin-top: 15px;
-}
-.avatar-child {
-	max-width: 70px;
-}
-.tester {
-	border: blue solid;
-}
-</style>
+				</div> <!-- end child row -->
+			</div> <!-- end container -->
+		</div> <!-- close mdl-card__supporting-text -->
+	  <div class="mdl-card__actions mdl-card--border">
+	    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+	      View More
+	    </a>
+	  </div>
+	</div> <!-- CLOSE CARD -->
+<% end %>

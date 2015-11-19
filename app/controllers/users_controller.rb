@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(:username)
+    @users = User.all
     render :index
   end
 
