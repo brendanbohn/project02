@@ -35,6 +35,8 @@ gem 'paperclip'
 
 gem 'ffaker'
 
+gem 'friendly_id'
+
 gem 'bootstrap-material-design'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

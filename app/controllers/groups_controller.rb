@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @groups = Group.all
     @posts = Post.where(group_id: @group).order(created_at: :DESC)
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @current_user= current_user
     @post = Post.new
     render :show
