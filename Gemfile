@@ -6,9 +6,7 @@ gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'bootstrap-material-design'
 
-gem 'bootstrap-sass'
 
 gem 'material_design_lite-rails'
 
@@ -36,6 +34,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip'
 
 gem 'ffaker'
+
+gem 'bootstrap-material-design'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
