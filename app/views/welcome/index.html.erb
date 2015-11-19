@@ -31,7 +31,7 @@
   <% if @users_error %>
     <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
   <% end %>
-  <%= form_for :user, url: '/users' do |f| %>
+  <%= form_for @user, url: "/sessions", method: "POST" do |f| %>
     <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
     <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
     <div class="text-right">
