@@ -22,10 +22,12 @@ Questionnaire.destroy_all
   user_params[:email] = FFaker::Internet.email
   user_params[:bio] = FFaker::Lorem.paragraph(3)
   user_params[:username] = FFaker::Name.first_name
+  user_params[:image] = FFaker::Avatar.image
   
   # save the user
   new_user = User.create(user_params)
-  puts new_user
+  p new_user
+  p new_user.id
   puts new_user.full_name
 
   # seeds for questionnaire form
@@ -41,4 +43,20 @@ Questionnaire.destroy_all
     new_user.questionnaire = new_questionnaire
   end
 
+  3.times do
+    new_child = Child.new puts @ßchild
+    new_child.name = FFaker::Name.first_name
+    new_child.birthday = FFaker::Time.date
+    new_child.bio = FFaker::Lorem.paragraph(2)
+    new_child.gender = FFaker::Identification.gender
+    new_child.user_id = new_user.id
+    new_child.image = FFaker::Avatar.image
+    new_child.save
+  end
+
+
 end
+
+
+
+
