@@ -27,10 +27,11 @@ $color: #1abc9c;
 h2, input::-webkit-input-placeholder, button {
   font-family: 'roboto', sans-serif;
   transition: all 0.3s ease-in-out;
+  z-index: 9999;
 }
 
 h2 {
-	margin: 0 0 -30px 0;
+	margin: 0 0 -20px 0;
   height: 100px;
   width: 100%;
   font-size: 25px;
