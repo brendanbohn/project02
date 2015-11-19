@@ -1,0 +1,7 @@
+<%= form_for @post do |f| %>
+
+  <%= f.text_field  :title, class:"form-control", placeholder:"Title" %> 
+  <%= f.text_area :content, class:"form-control", placeholder:"Content" %>
+  <%= f.submit "Update Post", class:"btn btn-primary btn-lg pull-right" %>
+
+<% end %>

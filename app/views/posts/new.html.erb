@@ -1,0 +1,47 @@
+<div class="container">
+  <div id='newPostForm' class="col-md-12">
+    <h1>Post to one of your groups below<br> <small>or create a new group <%= link_to "here", new_group_path %> :</small></h1>
+    <div class="well clearfix">
+     
+      <%= form_for @post do |f| %>
+
+      <ul>
+        <% if @post.errors.any? %> 
+        <p>
+          <%= pluralize(@post.errors.count, "error") %> prevented the form from being saved:
+        </p>
+        <% @post.errors.full_messages.each do |message| %> 
+        <li><%= message %></li>
+
+        <% end %> 
+        <% end %> 
+      </ul>
+      
+        <div>
+          <h3>Create a title for your post:</h3>
+          <p>This should help other parents have a good idea about what your post topic is about.</p>
+          <%= f.text_field :title, class:"form-control", placeholder: "Title" %>
+        </div>
+        <div>
+          <h3>Information to share:</h3>
+          <p>The information below should give insight to other parents interested in parenting.  This can include school reviews, places to take your child to get fresh air, child friendly resturants, tips and tricks to managing your child's day to day lives.</p>
+          <%= f.text_area :content, rows: 10, class:"form-control", placeholder: "Content" %>
+          <%=f.hidden_field :user_id, :value => current_user.id %>
+          <%=f.hidden_field :author, :value => current_user.username %>
+        </div>
+        <div id="groupDropDown">
+          <h3>Pick a group below to make your post in:</h3>
+          <%= fields_for (@groups) do |g| %>
+            <div class= 'field'>
+              <%= g.label "All Your Groups" %> </br>
+              <%= f.collection_select :group_id, @groups, :id, :name, { include_blank: true } %>
+            </div>
+          <% end %>
+        </div>
+
+        <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+      <% end %>
+      
+    </div>
+  </div>
+  

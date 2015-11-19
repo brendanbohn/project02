@@ -1,2 +1,52 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% @users.each do |user| %>
+	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+		<div class="mdl-card__supporting-text">
+			<div class="container">
+				<div class="row"><!-- PARENT INFO ROW -->
+					<div class="col-md-2">
+						<%= image_tag "#{rand(7)}.png", :class => "avatar-parent" %>
+					</div>
+					<div class="col-md-7" id="parent-header">
+						<h4 class="parent_name"><%= user[:username] %></h4>
+						<h6><%= user[:city]  %></h6>
+						<p><%= user[:bio]  %></p>
+					</div>
+				</div> <!-- end row -->
+				<div class="row">
+
+				  <div class="col-sm-5">
+				    <div class="row">
+				      <div class="col-sm-6">
+				        <!-- Image goes here -->
+				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				      </div>
+				      <div class="col-sm-6">
+				        <!-- Age, etc. goes here -->
+				        <h5>James, 6</h5>
+				      </div>
+				    </div>
+				  </div>
+
+				  <div class="col-sm-5">
+				    <div class="row">
+				      <div class="col-sm-6">
+				        <!-- Image goes here -->
+				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				      </div>
+				      <div class="col-sm-6">
+				        <!-- Age, etc. goes here -->
+				        <h5>James, 6</h5>
+				      </div>
+				    </div>
+				  </div>
+
+				</div> <!-- end child row -->
+			</div> <!-- end container -->
+		</div> <!-- close mdl-card__supporting-text -->
+	  <div class="mdl-card__actions mdl-card--border">
+	    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+	      View More
+	    </a>
+	  </div>
+	</div> <!-- CLOSE CARD -->
+<% end %>

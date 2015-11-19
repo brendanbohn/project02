@@ -1,0 +1,22 @@
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well clearfix">
+  <h1>Have Children? Add a few:</h1>
+  <%= form_for @child do |f| %>
+    <%= f.label :name %> 
+    <%= f.text_field :name, placeholder: "Child's Name", class:'form-control', autofocus: true %> 
+    <br>
+    <%= f.label :birthday %> 
+    <%= f.date_field :birthday %>
+    <br> 
+    <p>Boy   <%= f.radio_button :gender, "male", :value => 'Male'%> </p>
+    <p>Girl   <%= f.radio_button :gender, "female", :value => 'Female'%> </p>
+    </br>
+    <%= f.label :bio %>
+    <%= f.text_area :bio, rows: 10, placeholder: "background about your child", class:'form-control'%> 
+    <div class="text-right">
+      <%= f.submit "Submit", class: 'btn btn-primary' %> 
+    </div>
+    <% end %> 
+  </div>
+</section>
+

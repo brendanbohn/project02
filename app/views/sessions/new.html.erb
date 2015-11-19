@@ -1,0 +1,14 @@
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h1>Welcome Back</h1>
+    <%= form_for @user, url: "/sessions", method: "post" do |f| %>
+      <div>
+        <%= f.text_field :email, placeholder: "Email" %>
+      </div>
+      <div>
+        <%= f.password_field :password, placeholder: "Password" %>
+      </div>
+      <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+    <% end %>   
+  </div>
+</section>
