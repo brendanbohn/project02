@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4">
+      
+      <div>
+        <%= link_to "View Group", group_path(@group) %> 
+      </div>
+      
+      <div>
+        <!-- TODO: should display the author of post -->
+        <p>Author: <%= User.find(@post.user_id).username %></p>
+      </div>
+
+
+    </div>
+
+    <div class="col-sm-8">
+      <h1><%= @post.title %></h1>
+      <p><%= @post.content %></p>
+      <!-- TODO customization:  when this is the current users post display editing buttons -->
+      <% if session[:user_id] == @user.id %>
+        <div class="row">
+          <%= button_to "Edit Post", edit_post_path, class:"pairBtn btn btn-default raised", method: :get %> 
+          <%= button_to "Delete Post", post_path, class:"pairBtn btn btn-default", method: :delete %>
+        </div>
+      <% end %>
+
+      <!-- Show Comments -->
+       <div class="row">
+       <h2> Comments: </h2>
+        <ul>
+          <% @post.comments.each do |c| %>
+          <li> <%= c.content %> </li>
+          <% end %>
+        </ul>
+      </div>
+      <!-- Add Comment Form -->
+      <div class="row">
+        <h2>Add a comment:</h2>
+        <%= form_for([@post, @post.comments.build]) do |f| %>
+          <div class="field">
+            <%= f.text_area :response %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+      <!--  -->
+
+    </div>
+
+
+    <!-- TODO customization:  when this is not the current users post display add comment forms -->
+
+
+  </div>
+</div>
