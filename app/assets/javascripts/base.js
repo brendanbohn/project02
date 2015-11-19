@@ -6,6 +6,7 @@ $(document).ready(function(){
 	$("#signup-button").click(function(e){
 		e.preventDefault();
 		console.log("clicked su button");
+		$('#landing-content').addClass('blur');
 		$("#signup-form").show();
 	});
 	$("#signin-button").click(function(e){

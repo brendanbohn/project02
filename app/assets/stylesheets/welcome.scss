@@ -19,6 +19,12 @@ h1 {
 h3 {
 	font-size: 25px;
 }
+.blur {
+    box-shadow: 0px 0px 20px 20px rgba(255,255,255,1);
+    text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+    transform: scale(0.9);
+    opacity: 0.6;
+}
 
 /* SIGNUP AND LOGIN */
 
@@ -43,9 +49,13 @@ h2 {
 }
 
 .sign-form {
+	position: absolute;
+	top: 0;
+	left: 350px;
   box-sizing: border-box;
-  margin: 100px auto 0;
+  margin: 100px auto auto;
   width: 50%;
+  background-color: #ffffff;
   box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
   padding-bottom: 40px;
   border-radius: 3px;
@@ -86,7 +96,7 @@ h2 {
   background: $color;
   cursor: pointer;
   border-radius: 3px;
-  padding: 6px;
+  padding: 10px;
   width: 200px;
   color: white;
   margin-left: 25px;
