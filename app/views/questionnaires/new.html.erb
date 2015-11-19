@@ -1,0 +1,62 @@
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h1>A few questions to help us reach others like you.</h1>
+    <%= form_for @questionnaire do |f|%>
+    <%= label_tag(:question1, "What is your favorite color" )%> 
+    </br><p>Purple</p>
+    <%= f.radio_button :question1, 1, :value => 'purple'%> 
+    </br><p>Blue</p>
+    <%= f.radio_button :question1, 2, :value => 'blue'%> 
+    </br><p>Red</p>
+    <%= f.radio_button :question1, 3, :value => 'red'%> 
+    </br><p>Green</p>
+    <%= f.radio_button :question1, 4, :value => 'green'%> 
+    <br>
+
+    <%= label_tag(:question2, "What is your favorite animal" )%> 
+    </br><p>cat</p>
+    <%= f.radio_button :question2, 1, :value => 'cat'%> 
+    </br><p>dog</p>
+    <%= f.radio_button :question2, 2, :value => 'dog'%> 
+    </br><p>bird</p>
+    <%= f.radio_button :question2, 3, :value => 'bird'%> 
+    </br><p>duck</p>
+    <%= f.radio_button :question2, 4, :value => 'duck'%> 
+    <br>
+
+    <%= label_tag(:question3, "What is your favorite video game" )%> 
+    </br><p>super mario</p>
+    <%= f.radio_button :question3, 1, :value => 'super mario'%> 
+    </br><p>pokemon</p>
+    <%= f.radio_button :question3, 2, :value => 'pokemon'%> 
+    </br><p>skyrim</p>
+    <%= f.radio_button :question3, 3, :value => 'skyrim'%> 
+    </br><p>video games are evil</p>
+    <%= f.radio_button :question3, 4, :value => 'video games are evil'%> 
+    <br>
+
+    <%= label_tag(:question4, "how much time do you have to spend with other people's childeren?" )%> 
+    </br><p>2 hours per day</p>
+    <%= f.radio_button :question4, 1, :value => '2 hours per day'%> 
+    </br><p>once a week</p>
+    <%= f.radio_button :question4, 2, :value => 'once a week'%> 
+    </br><p>only in the mornings</p>
+    <%= f.radio_button :question4, 3, :value => 'only in the mornings'%> 
+    </br><p>I have no time for anyone else's kids</p>
+    <%= f.radio_button :question4, 4, :value => 'I have no time for anyone elses kids'%> 
+    <br>
+
+    <%= label_tag(:question5, "What is your favorite form of punishment" )%> 
+    </br><p>timeout</p>
+    <%= f.radio_button :question5, 1, :value => 'timeout'%> 
+    </br><p>reward bad behavio</p>
+    <%= f.radio_button :question5, 2, :value => 'reward bad behavior'%> 
+    </br><p>silent treatment</p>
+    <%= f.radio_button :question5, 3, :value => 'silent treatment'%> 
+    </br><p>my child is perfect and does no wrong</p>
+    <%= f.radio_button :question5, 4, :value => 'my child is perfect and does no wrong'%> 
+    <br>
+    <%= f.submit "submit", class: 'btn btn-primary' %> 
+    <%end%> 
+  </div>
+</section>
