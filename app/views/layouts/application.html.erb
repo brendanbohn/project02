@@ -18,13 +18,26 @@
       <div class="mdl-layout-spacer">
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+
+  
+
+
+
+
       	<%=link_to "Ocean", users_path, class:"btn btn-primary" %>
         <%=link_to "Cove", users_path, class:"btn btn-primary" %>
-        <%=link_to "Pool 1", users_path, class:"btn btn-primary" %>
-        <%=link_to "Pool 2", users_path, class:"btn btn-primary" %>
-        <%=link_to "Pool 3", users_path, class:"btn btn-primary" %>
-        <%=link_to "Pool 4", users_path, class:"btn btn-primary" %>
-        <%=link_to "Pool 5", users_path, class:"btn btn-primary" %>
+      	<button id="demo-menu-lower-right" class="btn btn-primary">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
+
+
+
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+		    for="demo-menu-lower-right">
+		  <li class="mdl-menu__item">Some Action</li>
+		  <li class="mdl-menu__item">Another Action</li>
+		  <li class="mdl-menu__item">Yet Another Actiony Action</li>
+		  <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
+		</ul>
+
         <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
           <i class="material-icons">search</i>
         </label>
@@ -49,7 +62,7 @@
   <main class="mdl-layout__content">
     <div class="page-content">
 	    <%= yield %>
-	    <p><%= "End of Page" %></p> <!-- ONLY HERE FOR TESTING -->
+	    <p><%= "End of Page" %></p><!-- ONLY HERE FOR TESTING -->
 	</div>
   </main>
 
@@ -60,8 +73,11 @@
 
 </body>
 <style>
-	.page-content {
+.page-content {
 	padding-left: 30px;
+}
+.glyphicon {
+	padding-left: 10px;
 }
 </style>
 </html>
