@@ -28,12 +28,12 @@
           <%= f.text_area :content, class:"form-control", placeholder: "Content" %>
           <%=f.hidden_field :user_id, :value => current_user.id %>
         </div>
-        <div id="cityDropDown">
+        <div id="groupDropDown">
           <h3>Pick a group below to make your post in:</h3>
           <%= fields_for (@groups) do |g| %>
             <div class= 'field'>
               <%= g.label "All Your Groups" %> </br>
-              <%= g.collection_select :group_id, @groups, :id, :name, include_blank: true %>
+              <%= f.collection_select :group_id, @groups, :id, :name, { include_blank: true } %>
             </div>
           <% end %>
         </div>
