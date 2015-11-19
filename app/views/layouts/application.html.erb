@@ -25,9 +25,9 @@
 
 
 
-      	<%=link_to "Ocean", users_path, class:"btn btn-primary" %>
-        <%=link_to "Cove", users_path, class:"btn btn-primary" %>
-      	<button id="demo-menu-lower-right" class="btn btn-primary">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
+      	<%=link_to "Ocean", users_path, class:"btn" %>
+        <%=link_to "Cove", users_path, class:"btn btn-default" %>
+      	<button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
 
 
 
@@ -86,14 +86,11 @@
           </div>
         </div>
 
-<<<<<<< HEAD
         <div class="row">
           <div class="col-sm-12 left-navigation">
             <%=link_to "View Full Profile", @current_user, class:"btn btn-primary" %>
           </div>
         </div>
-=======
->>>>>>> 499bf627a8d6ae6bdd9546ded4bc2d565de4a2fc
 
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="">Link</a>
@@ -108,7 +105,7 @@
   <main class="mdl-layout__content">
     <div class="page-content">
 	    <%= yield %>
-	    <p><%= "End of Page" %></p><!-- ONLY HERE FOR TESTING -->
+	    <p>End of Page</p><!-- ONLY HERE FOR TESTING -->
 	</div>
   </main>
 
@@ -152,11 +149,13 @@ img {
 .glyphicon {
 	padding-left: 10px;
 }
-.mdl-layout__header-row {
-  background-color: #879357;
+.mdl-layout__header {
+  background-color: #08088A;
 }
-.mdl-layout__drawer-button {
-  background-color: #879357;
+.btn {
+  background-color: #5882FA !important;
+  /*color: white !important;*/
+  color: #D8D8D8 !important;
 }
 </style>
 </html>
