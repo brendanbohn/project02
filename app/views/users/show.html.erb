@@ -1,2 +1,33 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 profile_pic">
+      <img src="<%= @user.image %>">
+      <br> 
+      <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
+      <br>
+      <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+      <br>
+      <p><%= "Home City: #{@user.city}" %></p>
+      <!-- TODO change to link to specific user -->
+      <%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-sm-8">
+      <!-- TODO run loop for all posts here -->
+      <ul>
+        <% @user.posts.each do |p| %> 
+        <li>
+          <div class="well clearfix">
+            <h3><%= link_to "#{p.title}", post_path(p) %></h3>
+            <br>
+            <p><%= p.content %> </p>
+            <br>
+            <%= button_to "Edit Post", edit_post_path(p), class:"pairBtn btn close", method: :get %>
+            <%= button_to "Delete Post", post_path(p), class:"pairBtn btn close", method: :delete %>
+          </div>
+        </li>
+        <% end %> 
+      </ul>
+    </div>
+  </div>
+</div>
+
