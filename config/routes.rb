@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :questionnaires
   resources :sessions
-  resources :routes
+  resources :children
   resources :posts
   resources :groups
   resources :comments
