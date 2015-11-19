@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 	has_many :children
   has_one :questionnaire
 
+  extend FriendlyId
+  friendly_id :username, use: :slugged
+
   has_secure_password
   validates :email, uniqueness: true
   validates_length_of :full_name, :allow_blank => false

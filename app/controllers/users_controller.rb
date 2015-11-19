@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @current_user= current_user
     render :show
   end
@@ -30,12 +30,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     render :edit
   end
 
   def update          
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image)
     @user.update_attributes(updated_attributes)
     redirect_to @user 
