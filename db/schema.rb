@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20151119170047) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "author"
     t.string   "content"
+    t.string   "author"
     t.integer  "user_id"
     t.integer  "group_id"
     t.datetime "created_at", null: false
