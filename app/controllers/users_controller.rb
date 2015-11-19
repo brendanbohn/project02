@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username)
     @user = User.new(user_params)
     if @user.save
-     sesssion[:user_id]=user.id # <-- login the user
+     login(@user) # <-- login the user
      redirect_to user_path(@user) # <-- go to show
     else
       render :new
