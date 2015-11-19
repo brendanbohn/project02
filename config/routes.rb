@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users
   resources :questionnaires
   resources :sessions
+  resources :children
 
 end
