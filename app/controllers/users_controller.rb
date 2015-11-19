@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(:username)
+    @users = User.all
     render :index
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @current_user= current_user
     render :show
   end
@@ -16,10 +16,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username)
+    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image)
     @user = User.new(user_params)
     if @user.save
-     sesssion[:user_id]=user.id # <-- login the user
+     login(@user) # <-- login the user
      redirect_to user_path(@user) # <-- go to show
     else
       render :new
@@ -30,13 +30,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     render :edit
   end
 
   def update          
-    @user = User.find(params[:id])
-    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio)
+    @user = User.friendly.find(params[:id])
+    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image)
     @user.update_attributes(updated_attributes)
     redirect_to @user 
   end

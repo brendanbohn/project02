@@ -19,7 +19,7 @@ class ChildrenController < ApplicationController
   end
 
   def create
-    child_params = params.require(:child).permit(:name, :birthday, :bio, :gender, :user_id)
+    child_params = params.require(:child).permit(:name, :birthday, :bio, :gender, :user_id, :image)
     @child = Child.create(child_params)
     @current_user= current_user
     @child.user_id = @current_user.id
@@ -38,7 +38,7 @@ class ChildrenController < ApplicationController
 
   def update
     @child = Child.find(params[:id])
-    child_params = params.require(:child).permit(:name, :birthday, :gender, :bio)
+    child_params = params.require(:child).permit(:name, :birthday, :gender, :bio, :image)
     @child.update_attributes(child_params)
     redirect_to @child
   end

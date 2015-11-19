@@ -1,9 +1,11 @@
-<div class="jumbotron">
-  <h1>Parent Website</h1>
-  <h3>A website for parents</h3>
+<div id="landing-content">
+  <div class="jumbotron">
+    <h1>Parent Website</h1>
+    <h3>A website for parents</h3>
+  </div>
+  <a href="#" id="signup-button">Sign Up</a>
+  <a href="#"id="signin-button">Sign In</a>
 </div>
-<a href="#" id="signup-button">Sign Up</a>
-<a href="#"id="signin-button">Sign In</a>
 
 <div id="signup-form" class="sign-form">
   <h2 class="text-right">Sign Up</h2>
@@ -11,10 +13,10 @@
   <% if @users_error %>
     <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
   <% end %>
-  <%= form_for :user, url: '/users' do |f| %>
+  <%= form_for @user do |f| %>
     <%= f.text_field :full_name, class: "form-input", placeholder: 'Full Name(s)', autofocus: true %>
     <%= f.text_field :username, class: "form-input", placeholder: 'username' %>
-    <%= f.text_field :current_city, class: "form-input", placeholder: 'City' %>
+    <%= f.text_field :city, class: "form-input", placeholder: 'City' %>
     <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
     <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
     <%= f.password_field :password_confirmation, class: "form-input", placeholder: 'confirm password' %>
@@ -29,7 +31,7 @@
   <% if @users_error %>
     <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
   <% end %>
-  <%= form_for :user, url: '/users' do |f| %>
+  <%= form_for @user, url: "/sessions", method: "POST" do |f| %>
     <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
     <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
     <div class="text-right">
