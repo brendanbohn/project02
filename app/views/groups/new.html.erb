@@ -10,7 +10,6 @@
   <div>
     <h3>Description of Group:</h3>
     <%= f.text_field :description, class:"form-control", placeholder: "general focus of the group descussions" %>
-    <%=f.hidden_field :user_id, :value => current_user.id %>
   </div>
 
   <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>

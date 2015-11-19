@@ -25,8 +25,9 @@
         <div>
           <h3>Information to share:</h3>
           <p>The information below should give insight to other parents interested in parenting.  This can include school reviews, places to take your child to get fresh air, child friendly resturants, tips and tricks to managing your child's day to day lives.</p>
-          <%= f.text_area :content, class:"form-control", placeholder: "Content" %>
+          <%= f.text_area :content, rows: 10, class:"form-control", placeholder: "Content" %>
           <%=f.hidden_field :user_id, :value => current_user.id %>
+          <%=f.hidden_field :author, :value => current_user.username %>
         </div>
         <div id="groupDropDown">
           <h3>Pick a group below to make your post in:</h3>

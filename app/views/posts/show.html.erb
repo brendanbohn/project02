@@ -38,16 +38,9 @@
       <!-- Add Comment Form -->
       <div class="row">
         <h2>Add a comment:</h2>
-        <%= form_for([@post, @post.comments.build]) do |f| %>
-          <div class="field">
-            <%= f.text_area :response %>
-          </div>
-          <div class="actions">
-            <%= f.submit %>
-          </div>
-        <% end %>
+ 
       </div>
-      <!--  -->
+     <!--  -->
 
     </div>
 
