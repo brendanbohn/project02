@@ -1,14 +1,39 @@
+html {
+	margin: 0 auto;
+	height: 100%;
+}
+body {
+	height: 100%;
+}
+
+.jumbotron {
+	background-image: url(kids.jpg);
+	background-size: cover;
+	color: white;
+	height: 500px;
+}
+h1 {
+	font-size: 40px;
+	font-style: bold;
+}
+h3 {
+	font-size: 25px;
+}
+
+/* SIGNUP AND LOGIN */
+
 $color: #1abc9c;
 
-h1, input::-webkit-input-placeholder, button {
+h2, input::-webkit-input-placeholder, button {
   font-family: 'roboto', sans-serif;
   transition: all 0.3s ease-in-out;
 }
 
-h1 {
+h2 {
+	margin: 0 0 -30px 0;
   height: 100px;
   width: 100%;
-  font-size: 18px;
+  font-size: 25px;
   background: darken($color, 4%);
   color: white;
   line-height: 150%;
@@ -16,7 +41,7 @@ h1 {
   box-shadow: 0 2px 5px 1px rgba(0,0,0,0.2);
 }
 
-#sign-up-form {
+.sign-form {
   box-sizing: border-box;
   margin: 100px auto 0;
   width: 50%;
@@ -30,8 +55,9 @@ h1 {
 }
 
 .form-input {
+	font-size: 18px;
   margin: 40px 25px;
-  width: 200px;
+  width: 90%;
   display: block;
   border: none;
   padding: 10px 0;
@@ -45,17 +71,16 @@ h1 {
   &:focus, &:valid {
     box-shadow: none;
     outline: none;
-    background-position: 0 0;
     &::-webkit-input-placeholder {
       color: $color;
-      font-size: 11px;
-      transform: translateY(-20px);
-      visibility: visible !important;
+      font-size: 18px;
+      visibility: visible;
     }
   }
 }
 
 .button {
+	font-size: 18px;
   border: none;
   background: $color;
   cursor: pointer;
