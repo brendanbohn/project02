@@ -6,10 +6,78 @@
   <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
 </head>
 <body>
 
-<%= yield %>
+<!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer">
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+
+  
+
+
+
+
+      	<%=link_to "Ocean", users_path, class:"btn btn-primary" %>
+        <%=link_to "Cove", users_path, class:"btn btn-primary" %>
+      	<button id="demo-menu-lower-right" class="btn btn-primary">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
+
+
+
+		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+		    for="demo-menu-lower-right">
+		  <li class="mdl-menu__item">Some Action</li>
+		  <li class="mdl-menu__item">Another Action</li>
+		  <li class="mdl-menu__item">Yet Another Actiony Action</li>
+		  <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
+		</ul>
+
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+	    <%= yield %>
+	    <p><%= "End of Page" %></p><!-- ONLY HERE FOR TESTING -->
+	</div>
+  </main>
+
+
+</div>
+
+
 
 </body>
+<style>
+.page-content {
+	padding-left: 30px;
+}
+.glyphicon {
+	padding-left: 10px;
+}
+</style>
 </html>
