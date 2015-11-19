@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
 
   root 'welcome#index'
   
@@ -9,5 +8,8 @@ Rails.application.routes.draw do
   resources :questionnaires
   resources :sessions
   resources :children
+  resources :posts
+  resources :groups
+  resources :comments
 
 end

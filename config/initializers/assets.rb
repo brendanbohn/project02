@@ -11,8 +11,11 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( 
  children.css
+ comments.css
+ groups.css
+ posts.css
  questionnaires.css
- users.css
  sessions.css
+ users.css
  welcome.css
  )
