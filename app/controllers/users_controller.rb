@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @children = Child.all
-    @current_user = current_user
     render :index
   end
 
