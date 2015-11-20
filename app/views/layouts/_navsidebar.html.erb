@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="image-cropper">
-                <img class="img" src="http://www.cbc.ca/strombo/content/images/Morgan-Freeman-The-Hour.jpg" class="rounded" id="user_profile_pic" />
+                <img class="img" src="<%= @current_user.image %>" class="rounded" id="user_profile_pic" />
             </div>
           </div>
         </div>
@@ -44,12 +44,14 @@
         <div class="row">
           <div class="col-sm-12 left-navigation">
             <h5><%= @current_user[:full_name] %></h5>
+            <p><%= @current_user[:username] %></p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <p>Diamond Heights</p>
+            <p><%= @current_user[:city] %></p>
+            <p><%= "Joined on #{@current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
           </div>
         </div>
 
@@ -61,7 +63,7 @@
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <p>As parents, we are interested in creating habits of thought, reading, writing, and speaking which go beneath surface meaning, first impressions, dominant myths, official pronouncements, traditional clichés, received wisdom, and mere opinions, to understand the deep meaning, root causes, social context, ideology, and personal consequences of any action, event, object, process, organization, experience, text, subject matter, policy, mass media, or discourse.</p>
+            <p><%= @current_user[:bio] %></p>
           </div>
         </div>
 
