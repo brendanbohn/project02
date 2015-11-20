@@ -5,6 +5,8 @@
       <br> 
       <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
       <br>
+
+      </br>
       <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
       <br>
       <p><%= "Home City: #{@user.city}" %></p>
