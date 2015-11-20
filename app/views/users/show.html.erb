@@ -5,6 +5,8 @@
       <br> 
       <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
       <br>
+
+      </br>
       <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
       <br>
       <p><%= "Home City: #{@user.city}" %></p>
@@ -12,8 +14,7 @@
       <%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %>
     </div>
     <div class="col-sm-8">
-      <!-- TODO run loop for all posts here -->
-      <ul>
+      <ul class="list-unstyled">
         <% @user.posts.each do |p| %> 
         <li>
           <div class="well clearfix">
@@ -21,6 +22,8 @@
             <br>
             <p><%= p.content %> </p>
             <br>
+            <!-- convert group id to group name -->
+            <h4><%= p.group_id %></h4>
             <%= button_to "Edit Post", edit_post_path(p), class:"pairBtn btn close", method: :get %>
             <%= button_to "Delete Post", post_path(p), class:"pairBtn btn close", method: :delete %>
           </div>
@@ -30,4 +33,3 @@
     </div>
   </div>
 </div>
-

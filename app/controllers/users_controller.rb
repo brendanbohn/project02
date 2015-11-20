@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @children = Child.all
     render :index
   end
 
   def show
     @user = User.friendly.find(params[:id])
     @current_user= current_user
+
     render :show
   end
 

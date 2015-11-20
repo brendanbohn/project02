@@ -12,6 +12,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( 
  children.css
  comments.css
+ compatabilities.css
  groups.css
  posts.css
  questionnaires.css

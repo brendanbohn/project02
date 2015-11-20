@@ -1,0 +1,15 @@
+<%= console %>
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-sm-3">
+      <%= link_to user_path(user) do %>
+        <center><img style="width:100px;" src="<%=user.image%>" ></center>
+        </br>
+        <p><center><%= user.username%></center></p>
+        <%=compat current_user, user%>
+      
+      <%end%>
+    </div>
+  <%end%>
+
+</div>

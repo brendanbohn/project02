@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :groups
   resources :comments
+  resources :compatabilities
 
 end
