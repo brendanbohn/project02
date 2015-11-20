@@ -105,6 +105,20 @@
   <main class="mdl-layout__content">
     <div class="page-content">
 	    <%= yield %>
+      <!-- Square card -->
+      <style>
+      .demo-card-square.mdl-card {
+        width: 320px;
+        height: 320px;
+      }
+      .demo-card-square > .mdl-card__title {
+        color: #fff;
+        background:
+          url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+      }
+      </style>
+
+
 	    <p>End of Page</p><!-- ONLY HERE FOR TESTING -->
 	</div>
   </main>

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @current_user= current_user
+    @children= Child.all
     render :show
   end
 
