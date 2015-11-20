@@ -9,7 +9,6 @@ class ChildrenController < ApplicationController
     @children=Child.all
     @user = User.find_by_id(@child.user_id)
     @current_user= current_user
-
   end
 
   def new

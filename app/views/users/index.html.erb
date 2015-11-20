@@ -23,7 +23,10 @@
 				      </div>
 				      <div class="col-sm-6">
 				        <!-- Age, etc. goes here -->
-				        <h5><%= child[:name] %> <small><%= child[:birthday] %></small></h5>
+				        <h5>
+					        <%= child[:name] %>, 
+					        <small><%= calculate_age(child[:birthday]) %></small>
+				        </h5>
 					<span class="hobbies-sec"><%= child[:bio] %></span>
 				      </div>
 				    </div>
