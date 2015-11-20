@@ -39,8 +39,9 @@ h2, input::-webkit-input-placeholder, button {
   z-index: 9999;
 }
 
-h2 {
-	margin: 0 0 -20px 0;
+#signup-title,
+#signin-title {
+	margin: 0px 0 20 0;
   height: 100px;
   width: 100%;
   font-size: 25px;
@@ -62,9 +63,9 @@ h2 {
   box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
   padding-bottom: 40px;
   border-radius: 3px;
-  h1 {
+  h2 {
     box-sizing: border-box;
-    padding: 20px;
+    padding: 30px 70px;
   }
 }
 
@@ -137,7 +138,7 @@ h2 {
   padding: 10px;
   width: 200px;
   color: white;
-  margin-left: 25px;
+  margin-right: 50px;
   box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
   &:hover { 
     transform: translateY(-3px);
