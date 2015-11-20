@@ -17,3 +17,58 @@
 @import "bootstrap";
 @import "bootstrap-material-design";
 @import "material";
+
+// DEFAULT BUTTON
+.btn {
+  background-color: #5882FA !important;
+  color: #D8D8D8 !important;
+}
+// NAVBAR MAIN
+.mdl-layout__drawer {
+  padding-top: 20px;
+}
+.mdl-layout__header {
+  background-color: #08088A;
+}
+// #page-content {
+//   padding-left: 30px;
+// }
+#pools_glyph {
+  padding-left: 10px;
+}
+.logo {
+  margin-left: auto ;
+  margin-right: auto ;
+}
+.left-navigation {
+  width:215px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.image-cropper {
+    width: 180px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.page-content {
+  padding-left: 30px;
+}
+.img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
