@@ -2,9 +2,10 @@
   <div class="col-sm-4">
     <div class="row">
       <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
-      <div class="user_img"><%= image_tag @user.image %> </div><br>
+      <div><%= image_tag @user.image, class:"user_img" %> </div><br>
       <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
       <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+      <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
       <hr>
     </div>
     <div class="row">
@@ -13,38 +14,21 @@
   </div>
     <div class="col-sm-6">
     <div class="row">
-      <%= "#{@user.bio}" %>
+      <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
     </div>
     <hr>
     <div class="row">
-      POSTS <br>
       <% @user.posts.each do |p| %> 
-      <%= link_to "#{p.title}", post_path(p) %>
-      <br>
+      <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
+      <div>
+      <%= button_to "Edit Post", edit_post_path(p), class:"btn post_btns btn-xs", method: :get %>
+      <%= button_to "Delete Post", post_path(p), class:"btn post_btns btn-xs", method: :delete %>
+      </div>
+      <p class="pcontent"><%= p.content %> </p>
+      <!-- convert group id to group name -->
+      <p><strong>Originally Posted in Group:</strong> <%= p.group_id %></p>
+      <hr>
       <% end %>
     </div>
   </div>
 </div>
-
-<!--     <div class="col-sm-8">
-      <ul class="list-unstyled">
-        <% @user.posts.each do |p| %> 
-        <li>
-          <div class="well clearfix">
-            <h3><%= link_to "#{p.title}", post_path(p) %></h3>
-            <br>
-            <p><%= p.content %> </p>
-            <br>
-            convert group id to group name
-            <h4><%= p.group_id %></h4>
-            <%= button_to "Edit Post", edit_post_path(p), class:"pairBtn btn close", method: :get %>
-            <%= button_to "Delete Post", post_path(p), class:"pairBtn btn close", method: :delete %>
-          </div>
-        </li>
-        <% end %> 
-      </ul>
-    </div> -->
-
-
-
-
