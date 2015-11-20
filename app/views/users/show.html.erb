@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 profile_pic">
-      <img src="<%= @user.image %>">
+      <%= image_tag @user.image %>
       <br> 
       <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
       <br>
