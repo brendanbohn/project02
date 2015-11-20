@@ -47,7 +47,7 @@ Questionnaire.destroy_all
     new_child = Child.new puts @ßchild
     new_child.name = FFaker::Name.first_name
     new_child.birthday = FFaker::Time.date
-    new_child.bio = FFaker::Lorem.paragraph(2)
+    new_child.bio = FFaker::Lorem.sentence(1)
     new_child.gender = FFaker::Identification.gender
     new_child.user_id = new_user.id
     new_child.image = FFaker::Avatar.image

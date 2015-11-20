@@ -1,3 +1,4 @@
+<div class="user-card">
 <% @users.each do |user| %>
 	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
 		<div class="mdl-card__supporting-text">
@@ -12,33 +13,22 @@
 						<p><%= user[:bio]  %></p>
 					</div>
 				</div> <!-- end row -->
-				<div class="row">
-
+				<div class="child-section row">
+				<% user.children.each do |child| %>
 				  <div class="col-sm-5">
 				    <div class="row">
-				      <div class="col-sm-6">
+				      <div class="col-sm-3">
 				        <!-- Image goes here -->
 				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
 				      </div>
 				      <div class="col-sm-6">
 				        <!-- Age, etc. goes here -->
-				        <h5>James, 6</h5>
+				        <h5><%= child[:name] %> <small><%= child[:birthday] %></small></h5>
+					<span class="hobbies-sec"><%= child[:bio] %></span>
 				      </div>
 				    </div>
 				  </div>
-
-				  <div class="col-sm-5">
-				    <div class="row">
-				      <div class="col-sm-6">
-				        <!-- Image goes here -->
-				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
-				      </div>
-				      <div class="col-sm-6">
-				        <!-- Age, etc. goes here -->
-				        <h5>James, 6</h5>
-				      </div>
-				    </div>
-				  </div>
+				<% end %>
 
 				</div> <!-- end child row -->
 			</div> <!-- end container -->
@@ -50,3 +40,4 @@
 	  </div>
 	</div> <!-- CLOSE CARD -->
 <% end %>
+</div>
