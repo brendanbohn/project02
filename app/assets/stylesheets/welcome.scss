@@ -90,6 +90,35 @@ h2 {
   }
 }
 
+#tagline {
+  position: relative;
+  top: -100;
+}
+
+#signup-button {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+}
+#signup-button:hover {
+  padding: 20px 30px;
+}
+#signin-button {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+}
+
+#how {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+  padding: 30px;
+  background-color: teal!important;
+  margin: 0 -10px;
+  z-index: 1;
+}
+
 .button {
 	font-size: 18px;
   border: none;
