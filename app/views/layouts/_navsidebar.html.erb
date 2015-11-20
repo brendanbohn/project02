@@ -1,0 +1,89 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+<!-- TOP NAV -->
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer">
+      </div>
+      <div class="logo"><img class="img" src="http://i.imgur.com/tN7q2Bk.png"/></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+        <!-- NAVBAR LINKS -->
+        <%=link_to "Ocean", users_path, class:"btn" %>
+        <%=link_to "Cove", users_path, class:"btn btn-default" %>
+        <button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
+        <!-- DROPDOWN OPTIONS -->
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            for="demo-menu-lower-right">
+          <li class="mdl-menu__item">Some Action</li>
+          <li class="mdl-menu__item">Another Action</li>
+          <li class="mdl-menu__item">Yet Another Actiony Action</li>
+          <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
+        </ul>
+
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+        </div>
+      </div>
+    </div>
+  </header>
+<!-- SIDEBAR -->
+  <div class="mdl-layout__drawer">
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="image-cropper">
+                <img class="img" src="http://www.cbc.ca/strombo/content/images/Morgan-Freeman-The-Hour.jpg" class="rounded" id="user_profile_pic" />
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <h5><%= @current_user[:full_name] %></h5>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <p>Diamond Heights</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <h6><b>Parenting Mission</b></h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <p>As parents, we are interested in creating habits of thought, reading, writing, and speaking which go beneath surface meaning, first impressions, dominant myths, official pronouncements, traditional clichés, received wisdom, and mere opinions, to understand the deep meaning, root causes, social context, ideology, and personal consequences of any action, event, object, process, organization, experience, text, subject matter, policy, mass media, or discourse.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <%=link_to "View Full Profile", @current_user, class:"btn btn-primary" %>
+          </div>
+        </div>
+
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <%= yield %>
+  </div>
+  </main>
+</div>
