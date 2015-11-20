@@ -102,14 +102,17 @@ h2 {
   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
   position:relative;
   top:-70px;
-}
-#signup-button:hover {
-  padding: 20px 30px;
+  &:hover {
+    padding: 20px 60px;
+  }
 }
 #signin-button {
   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
   position:relative;
   top:-70px;
+  &:hover {
+    padding: 20px 60px;
+  }
 }
 
 #how {
@@ -120,6 +123,9 @@ h2 {
   background-color: teal!important;
   margin: 0 -10px;
   z-index: 1;
+  &:hover {
+    padding: 50px 60px;
+  }
 }
 
 .button {
