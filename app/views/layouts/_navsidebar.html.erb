@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="image-cropper">
-                <img class="img" src="<%= @current_user.image %>" class="rounded" id="user_profile_pic" />
+                <img class="img" src="<%= current_user.image %>" class="rounded" id="user_profile_pic" />
             </div>
           </div>
         </div>
@@ -43,15 +43,15 @@
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <h5><%= @current_user[:full_name] %></h5>
-            <p><%= @current_user[:username] %></p>
+            <h5><%= current_user[:full_name] %></h5>
+            <p><%= current_user[:username] %></p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <p><%= @current_user[:city] %></p>
-            <p><%= "Joined on #{@current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+            <p><%= current_user[:city] %></p>
+            <p><%= "Joined on #{current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
           </div>
         </div>
 
@@ -63,13 +63,13 @@
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <p><%= @current_user[:bio] %></p>
+            <p><%= current_user[:bio] %></p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
-            <%=link_to "View Full Profile", @current_user, class:"btn btn-primary" %>
+            <%=link_to "View Full Profile", current_user, class:"btn btn-primary" %>
           </div>
         </div>
 
