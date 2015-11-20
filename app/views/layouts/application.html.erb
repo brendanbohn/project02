@@ -15,29 +15,29 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
+      <div class="text-left"><div class="logo pull-left"><a href="/"><img src="http://i.imgur.com/tN7q2Bk.png" class="pull-left"/></a></div></div>
       <div class="mdl-layout-spacer">
       </div>
-      <div class="logo"><img src="http://i.imgur.com/tN7q2Bk.png"/></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
 
   
 
 
 
-
+      <% if current_user %>
       	<%=link_to "Ocean", users_path, class:"btn" %>
         <%=link_to "Cove", users_path, class:"btn btn-default" %>
       	<button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
 
 
 
-		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-		    for="demo-menu-lower-right">
-		  <li class="mdl-menu__item">Some Action</li>
-		  <li class="mdl-menu__item">Another Action</li>
-		  <li class="mdl-menu__item">Yet Another Actiony Action</li>
-		  <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
-		</ul>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="demo-menu-lower-right">
+      <li class="mdl-menu__item">Some Action</li>
+      <li class="mdl-menu__item">Another Action</li>
+      <li class="mdl-menu__item">Yet Another Actiony Action</li>
+      <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
+    </ul>
 
         <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
           <i class="material-icons">search</i>
@@ -47,6 +47,7 @@
         </div>
       </div>
     </div>
+      <% end %>
   </header>
 
 
