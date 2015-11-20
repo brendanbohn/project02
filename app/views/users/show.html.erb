@@ -1,19 +1,26 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 profile_pic">
-      <img src="<%= @user.image %>">
-      <br> 
-      <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
-      <br>
-
-      </br>
-      <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-      <br>
-      <p><%= "Home City: #{@user.city}" %></p>
-      <!-- TODO change to link to specific user -->
-      <%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %>
+<div class="user_data container">
+  <div class="col-sm-4">
+    <div class="row">
+      <h4 class="tester"><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
+      <img class="tester user_img" src="<%= @user.image %>"><br>
+      <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
+      <strong>Home City:</strong> <%= "#{@user.city}" %></p>
     </div>
-    <div class="col-sm-8">
+    <div class="tester row">
+      GROUPS
+    </div>
+  </div>
+    <div class="col-sm-6">
+    <div class="tester row">
+      <%= "#{@user.bio}" %>
+    </div>
+    <div class="tester row">
+      POSTS
+    </div>
+  </div>
+</div>
+
+<!--     <div class="col-sm-8">
       <ul class="list-unstyled">
         <% @user.posts.each do |p| %> 
         <li>
@@ -22,7 +29,7 @@
             <br>
             <p><%= p.content %> </p>
             <br>
-            <!-- convert group id to group name -->
+            convert group id to group name
             <h4><%= p.group_id %></h4>
             <%= button_to "Edit Post", edit_post_path(p), class:"pairBtn btn close", method: :get %>
             <%= button_to "Delete Post", post_path(p), class:"pairBtn btn close", method: :delete %>
@@ -30,6 +37,15 @@
         </li>
         <% end %> 
       </ul>
-    </div>
-  </div>
-</div>
+    </div> -->
+
+<style>
+.tester {
+  outline: blue solid;
+}
+</style>
+
+
+
+
+

@@ -14,10 +14,10 @@
 	max-width: 150px;
 	max-height: 150px;
 }
-h6 {
+.parent_city {
 	margin-top: 0px;
 }
-h4 {
+.parent_name {
 	margin-bottom: 0px;
 	margin-top: 15px;
 }
@@ -34,9 +34,17 @@ h5 {
 .child-section {
 	padding-top: 5px;
 }
-
-
-
+.user_data {
+	text-align: center;
+	margin-top: 20px;
+}
+.user_img {
+	max-height: 200px;
+	margin: 5px;
+}
+h4 {
+	margin: 0px;
+}
 
 
 
