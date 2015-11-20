@@ -1,21 +1,27 @@
 <div class="user_data container">
   <div class="col-sm-4">
     <div class="row">
-      <h4 class="tester"><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
-      <img class="tester user_img" src="<%= @user.image %>"><br>
+      <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
+      <img class="user_img" src="<%= @user.image %>"><br>
       <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
       <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+      <hr>
     </div>
-    <div class="tester row">
+    <div class="row">
       GROUPS
     </div>
   </div>
     <div class="col-sm-6">
-    <div class="tester row">
+    <div class="row">
       <%= "#{@user.bio}" %>
     </div>
-    <div class="tester row">
-      POSTS
+    <hr>
+    <div class="row">
+      POSTS <br>
+      <% @user.posts.each do |p| %> 
+      <%= link_to "#{p.title}", post_path(p) %>
+      <br>
+      <% end %>
     </div>
   </div>
 </div>
@@ -38,13 +44,6 @@
         <% end %> 
       </ul>
     </div> -->
-
-<style>
-.tester {
-  outline: blue solid;
-}
-</style>
-
 
 
 
