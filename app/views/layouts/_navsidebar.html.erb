@@ -4,12 +4,12 @@
     <div class="mdl-layout__header-row">
       <div class="mdl-layout-spacer">
       </div>
-      <div class="logo"><img src="http://i.imgur.com/tN7q2Bk.png"/></div>
+      <div class="logo"><img class="img" src="http://i.imgur.com/tN7q2Bk.png"/></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
         <!-- NAVBAR LINKS -->
         <%=link_to "Ocean", users_path, class:"btn" %>
         <%=link_to "Cove", users_path, class:"btn btn-default" %>
-        <button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down"></i></button>
+        <button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
         <!-- DROPDOWN OPTIONS -->
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
             for="demo-menu-lower-right">
@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="image-cropper">
-                <img src="http://www.cbc.ca/strombo/content/images/Morgan-Freeman-The-Hour.jpg" class="rounded" id="user_profile_pic" />
+                <img class="img" src="http://www.cbc.ca/strombo/content/images/Morgan-Freeman-The-Hour.jpg" class="rounded" id="user_profile_pic" />
             </div>
           </div>
         </div>
@@ -84,54 +84,6 @@
   <main class="mdl-layout__content">
     <div class="page-content">
       <%= yield %>
-      <p>End of Page</p><!-- ONLY HERE FOR TESTING -->
   </div>
   </main>
 </div>
-
-<style>
-
-.image-cropper {
-    width: 180px;
-    height: 180px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.left-navigation {
-  width:215px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.logo {
-  margin-left: auto ;
-  margin-right: auto ;
-}
-
-img {
-    display: inline;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
-}
-
-.page-content {
-  padding-left: 30px;
-}
-.glyphicon {
-  padding-left: 10px;
-}
-.mdl-layout__header {
-  background-color: #08088A;
-}
-.btn {
-  background-color: #5882FA !important;
-  color: #D8D8D8 !important;
-}
-
-.mdl-layout__drawer {
-  padding-top: 20px;
-}
-</style>

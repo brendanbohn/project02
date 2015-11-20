@@ -10,7 +10,12 @@
 </head>
 <body>
 
-<%= render "layouts/navbar" %>
+
+<% if @welcomepg %>
+	<%= render "./layouts/nav_top_bar" %>
+<% else %>
+	<%= render "./layouts/navsidebar" %>
+<% end %>
 
 </body>
 </html>
