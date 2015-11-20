@@ -9,8 +9,9 @@ require 'ffaker'
 
 User.destroy_all
 Questionnaire.destroy_all
-
-
+Child.destroy_all
+Post.destroy_all
+Group.destroy_all
 
 10.times do 
 
@@ -43,6 +44,7 @@ Questionnaire.destroy_all
     new_user.questionnaire = new_questionnaire
   end
 
+  #three children seeded for each user
   3.times do
     new_child = Child.new puts @ßchild
     new_child.name = FFaker::Name.first_name
@@ -54,8 +56,22 @@ Questionnaire.destroy_all
     new_child.save
   end
 
+  # seeds for posts
+  5.times do
+
+    new_post = Post.new
+    new_post.title = FFaker::Movie.title
+    new_post.content = FFaker::Lorem.paragraph(4)
+    new_post.author = new_user.username
+    new_post.group_id = rand(1..4)
+    new_post.save
+    new_user.posts.push new_post
+  end
+
 
 end
+
+groups = Group.create([{ name: 'Carpool Divas', description: "moms and dads that love to drive their kids and others everywhere"}, { name: 'Punishment Preventers', description: 'Helping parents find ways to correct a childs bad behavior, through non violent ways' }, {name: 'Kids and Pets', description: 'community members that will watch your dog and your child while you are gone'}, {name: 'No Time', description: 'No time to help but want to be involved somehow'}])
 
 
 
