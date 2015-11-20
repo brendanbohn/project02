@@ -30,4 +30,9 @@ class User < ActiveRecord::Base
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])
   end
+
+  def image
+    @image || "5.png"
+  end
+
 end
