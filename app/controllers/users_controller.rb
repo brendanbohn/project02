@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    add_default_image @user
+    # add_default_image @user
     render :new
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     p params[:user][:email]
 
-    add_default_image @user
+    # @user.add_default_image
 
     if @user.save
      login(@user) # <-- login the user
@@ -33,25 +33,12 @@ class UsersController < ApplicationController
     end
   end
 
-
-  def add_default_image user
-    # if value.blank?
-    #   write_attribute :image, "/images/5.png"
-    # else
-    #   write_attribute :image, value
-    # end
-    p "hereesisis ghd sdl !!!! #{user.image.blank?}" 
-    user.image = "5.png" if user.image.blank?
-    user.save
-    p user
-  end
-
   def destroy
   end
 
   def edit
     @user = User.friendly.find(params[:id])
-    add_default_image @user
+    # add_default_image @user
     render :edit
   end
 
@@ -59,7 +46,7 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image)
     @user.update_attributes(updated_attributes)
-    add_default_image @user
+    # @user.add_default_image
     redirect_to @user 
   end
 
