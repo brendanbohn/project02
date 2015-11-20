@@ -35,14 +35,4 @@ class User < ActiveRecord::Base
     @image || "5.png"
   end
 
-  # def add_default_image
-  #   # if value.blank?
-  #   #   write_attribute :image, "/images/5.png"
-  #   # else
-  #   #   write_attribute :image, value
-  #   # end
-  
-  #   image = "5.png" if image.blank?
-  #   save
-  # end
 end

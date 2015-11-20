@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    # add_default_image @user
     render :new
   end
 
@@ -22,8 +21,6 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image)
     @user = User.new(user_params)
     p params[:user][:email]
-
-    # @user.add_default_image
 
     if @user.save
      login(@user) # <-- login the user
@@ -38,7 +35,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.friendly.find(params[:id])
-    # add_default_image @user
     render :edit
   end
 
@@ -46,7 +42,6 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image)
     @user.update_attributes(updated_attributes)
-    # @user.add_default_image
     redirect_to @user 
   end
 
