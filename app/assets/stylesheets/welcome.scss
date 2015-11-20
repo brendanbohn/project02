@@ -1,14 +1,17 @@
 html {
 	margin: 0 auto;
 	height: 100%;
+  width: 100% !important;
 }
 body {
 	height: 100%;
+  width: 100% !important;
 }
 
 .jumbotron {
 	background-image: url(kids.jpg);
 	background-size: cover;
+  width: 100% !important;
 	color: white;
 	height: 500px;
 }
@@ -36,8 +39,9 @@ h2, input::-webkit-input-placeholder, button {
   z-index: 9999;
 }
 
-h2 {
-	margin: 0 0 -20px 0;
+#signup-title,
+#signin-title {
+	margin: 0px 0 20 0;
   height: 100px;
   width: 100%;
   font-size: 25px;
@@ -59,9 +63,9 @@ h2 {
   box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
   padding-bottom: 40px;
   border-radius: 3px;
-  h1 {
+  h2 {
     box-sizing: border-box;
-    padding: 20px;
+    padding: 30px 70px;
   }
 }
 
@@ -90,6 +94,41 @@ h2 {
   }
 }
 
+#tagline {
+  position: relative;
+  top: -100;
+}
+
+#signup-button {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+  &:hover {
+    padding: 20px 60px;
+  }
+}
+#signin-button {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+  &:hover {
+    padding: 20px 60px;
+  }
+}
+
+#how {
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+  position:relative;
+  top:-70px;
+  padding: 30px;
+  background-color: teal!important;
+  margin: 0 -10px;
+  z-index: 1;
+  &:hover {
+    padding: 50px 60px;
+  }
+}
+
 .button {
 	font-size: 18px;
   border: none;
@@ -99,7 +138,7 @@ h2 {
   padding: 10px;
   width: 200px;
   color: white;
-  margin-left: 25px;
+  margin-right: 50px;
   box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
   &:hover { 
     transform: translateY(-3px);
