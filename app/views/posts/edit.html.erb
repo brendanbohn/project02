@@ -1,7 +1,26 @@
-<%= form_for @post do |f| %>
+<section>
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for @post do |f| %>
 
-  <%= f.text_field  :title, class:"form-control", placeholder:"Title" %> 
-  <%= f.text_area :content, class:"form-control", placeholder:"Content" %>
-  <%= f.submit "Update Post", class:"btn btn-primary btn-lg pull-right" %>
+      <h3><%=f.label "post Title"%></h3>
+      <%= f.text_field  :title, class:"form-control", placeholder:"Title" %> 
+      </br>
+      <h3><%=f.label "post content"%></h3>
+      <p><%= f.text_area :content, rows: "15", class:"form-control", placeholder:"Content" %></p>
+      
+      <!-- This should only show groups that the user is a memeber in -->
+      <div id="groupDropDown">
+        <h5>Change group this is posted in:</h5>
+        <%= fields_for (@groups) do |g| %>
+          <div class= 'field'>
+            <%= g.label "All Your Groups" %> </br>
+            <%= f.collection_select :group_id, @groups, :id, :name, { include_blank: true } %>
+          </div>
+        <% end %>
+      </div>
 
-<% end %>
+      <%= f.submit "Update Post", class:"btn btn-primary btn-lg pull-right" %>
+    <% end %> 
+    
+  </div>
+</section>
