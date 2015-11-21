@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'welcome#index'
   
 
@@ -12,5 +11,6 @@ Rails.application.routes.draw do
   resources :groups
   resources :comments
   resources :compatabilities
+  resources :memberships
 
 end

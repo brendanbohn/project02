@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w(
  comments.css
  compatabilities.css
  groups.css
+ memberships.css
  posts.css
  questionnaires.css
  sessions.css

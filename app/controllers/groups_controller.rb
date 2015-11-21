@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
     @user = User.friendly.find(params[:id])
     @current_user= current_user
     @post = Post.new
+    @memberships = Membership.all
+    @membership = Membership.new
     render :show
   end
 
