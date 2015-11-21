@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def compat userA, userB
     # take current user, compaire questionnaire results to all other users 
     #score how many points
@@ -21,4 +22,6 @@ module ApplicationHelper
     
     return score
   end
+
+
 end
