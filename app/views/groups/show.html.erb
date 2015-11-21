@@ -1,5 +1,27 @@
-<h1><%= "#{@group.name}" %></h1>
+<section class='intro'>
+  <div class="row">
+    <div class="col-sm-4">
+      <h1><%= "#{@group.name}" %></h1>
 
-<p><%= "#{@group.description}" %></p>
+      <p><%= "#{@group.description}" %></p>
+      number of members in this group
 
-<%=link_to "Edit profile", edit_group_path, class:"btn btn-primary" %>
+      <%=link_to "Edit profile", edit_group_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-sm-8">
+      <div class="row">
+        <h2>Parents conversations going on this group</h2>
+        <% @posts.each do |post| %>
+          <div class='col-sm-2'>
+          <%= image_tag User.find(post.user_id).image, class:"user_img" %>
+          </div>
+          <div class='col-sm-8 well'>
+            <h3><%= link_to "#{post.title}", post_path(post) %></h3>
+            <p><%=post.content%></p>
+          </div>
+        <% end %>
+      </div> 
+    </div>
+    
+  </div>
+</section>
