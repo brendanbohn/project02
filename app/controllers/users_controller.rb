@@ -21,8 +21,10 @@ class UsersController < ApplicationController
     user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image)
     @user = User.new(user_params)
     if @user.save
-     login(@user) # <-- login the user
-     redirect_to user_path(@user) # <-- go to show
+      # Tell the UserMailer to send a welcome email after save
+      UserMailer.welcome_email(@user).deliver_now
+      login(@user) # <-- login the user
+      redirect_to user_path(@user) # <-- go to show
     else
       render :new
     end
