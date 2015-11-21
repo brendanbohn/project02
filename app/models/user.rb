@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 	has_many :connections
 	has_many :posts
-	has_many :groups
-	has_many :children
+  has_many :children
   has_one :questionnaire
+  has_many :memberships
+	has_many :groups, :through => :memberships
+
 
   extend FriendlyId
   friendly_id :username, use: :slugged
