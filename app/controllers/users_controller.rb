@@ -26,8 +26,10 @@ class UsersController < ApplicationController
     add_default_image @user
 
     if @user.save
-     login(@user) # <-- login the user
-     redirect_to user_path(@user) # <-- go to show
+      # Tell the UserMailer to send a welcome email after save
+      UserMailer.welcome_email(@user).deliver_now
+      login(@user) # <-- login the user
+      redirect_to user_path(@user) # <-- go to show
     else
       render :new
     end
