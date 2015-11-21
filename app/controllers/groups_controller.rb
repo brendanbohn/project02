@@ -18,13 +18,23 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @current_user= current_user
+    @users = User.all
+    @membership.user_id = current_user.id
     render :new
   end
 
   def create
-    group_params = params.require(:group).permit(:name, :description, :members)
+    group_params = params.require(:group).permit(:name, :description)
     @group = Group.create(group_params)
-    redirect_to @group
+    @current_user= current_user
+    @users = User.all
+    @memberships.user_id = current_user.id
+     if @group.save
+      redirect_to @group
+    else 
+      render :new
+    end
   end
 
   def destroy

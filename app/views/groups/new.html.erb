@@ -13,9 +13,13 @@
   </div>
 
   <!-- need to add person making the group an automatic member to group -->
+  <%= field_for @membership do |m| %>
+    <%= m.hidden_field :user_id, value: => current_user.id %>
+    <!-- drop down of all users that can be added -->
+  <%= %>
 
  <!--  if there are no member in the group delete it -->
-
+  <%end%>
   <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
 
 <% end %>
