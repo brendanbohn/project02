@@ -5,7 +5,7 @@
 			<div class="container">
 				<div class="row"><!-- PARENT INFO ROW -->
 					<div class="col-md-2">
-						<%= image_tag "#{rand(7)}.png", :class => "avatar-parent" %>
+						<%= image_tag user.image, :class => "avatar-parent" %>
 					</div>
 					<div class="col-md-7" id="parent-header">
 						<h4 class="parent_name"><%= user[:username] %></h4>
@@ -19,7 +19,7 @@
 				    <div class="row">
 				      <div class="col-sm-3">
 				        <!-- Image goes here -->
-				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				        <%= image_tag child.image, :class => "avatar-child" %>
 				      </div>
 				      <div class="col-sm-6">
 				        <!-- Age, etc. goes here -->
