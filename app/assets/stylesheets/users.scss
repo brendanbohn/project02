@@ -14,7 +14,7 @@
 	max-width: 150px;
 	max-height: 150px;
 }
-h6 {
+.parent_city {
 	margin-top: 0px;
 }
 
@@ -23,7 +23,7 @@ h6 {
 	background-color: #5882FA!important;
 }
 
-h4 {
+.parent_name {
 	margin-bottom: 0px;
 	margin-top: 15px;
 }
@@ -40,9 +40,25 @@ h5 {
 .child-section {
 	padding-top: 5px;
 }
-
-
-
-
-
-
+.user_data {
+	text-align: center;
+	margin-top: 20px;
+}
+.user_img {
+	max-height: 200px;
+	margin-top: 5px;
+}
+h4 {
+	margin: 0px;
+	padding: 0px;
+}
+.pcontent {
+	clear: both;
+}
+.post_btns {
+	margin: 0px;
+	padding: 0px;
+}
+.post_title {
+	color: black;
+}

@@ -1,35 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 profile_pic">
-      <img src="<%= @user.image %>">
-      <br> 
-      <h4><%= "#{@user.full_name} #{@user.username}"  %> </h4>
-      <br>
-
-      </br>
-      <p><%= "Joined on #{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-      <br>
-      <p><%= "Home City: #{@user.city}" %></p>
-      <!-- TODO change to link to specific user -->
-      <%=link_to "Edit profile", edit_user_path, class:"btn btn-primary" %>
+<div class="user_data container">
+  <div class="col-sm-4">
+    <div class="row">
+      <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
+      <div><%= image_tag @user.image, class:"user_img" %> </div><br>
+      <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
+      <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+      <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
+      <hr>
     </div>
-    <div class="col-sm-8">
-      <ul class="list-unstyled">
-        <% @user.posts.each do |p| %> 
-        <li>
-          <div class="well clearfix">
-            <h3><%= link_to "#{p.title}", post_path(p) %></h3>
-            <br>
-            <p><%= p.content %> </p>
-            <br>
-            <!-- convert group id to group name -->
-            <h4><%= p.group_id %></h4>
-            <%= button_to "Edit Post", edit_post_path(p), class:"pairBtn btn close", method: :get %>
-            <%= button_to "Delete Post", post_path(p), class:"pairBtn btn close", method: :delete %>
-          </div>
-        </li>
-        <% end %> 
-      </ul>
+    <div class="row">
+      GROUPS
+    </div>
+  </div>
+    <div class="col-sm-6">
+    <div class="row">
+      <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
+    </div>
+    <hr>
+    <div class="row">
+      <% @user.posts.each do |p| %> 
+      <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
+      <div>
+      <%= button_to "Edit Post", edit_post_path(p), class:"btn post_btns btn-xs", method: :get %>
+      <%= button_to "Delete Post", post_path(p), class:"btn post_btns btn-xs", method: :delete %>
+      </div>
+      <p class="pcontent"><%= p.content %> </p>
+      <!-- convert group id to group name -->
+      <p><strong>Originally Posted in Group:</strong> <%= p.group_id %></p>
+      <hr>
+      <% end %>
     </div>
   </div>
 </div>

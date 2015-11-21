@@ -1,1 +1,18 @@
 <%= render partial: "profile" %>
+<section class='intro'>
+  <div class="col-sm-8 col-sm-offset-2 well">
+  <h2>Edit your profile below:</h2>
+    <%= form_for @user do |f| %>
+
+        <%= f.text_field  :full_name, class:"form-control" %> 
+        </br>
+        <%= f.text_area :username, class:"form-control" %>
+        </br>
+        <%= f.text_field :city, class:"form-control" %>
+        </br>
+        <%= f.text_field :image, class:"form-control" %>
+        <%= f.submit "Update Profile", class:"btn close pull-right" %>
+
+    <% end %>
+  </div>
+</section>
