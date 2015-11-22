@@ -6,6 +6,8 @@
   <%=f.hidden_field :user_id, :value => current_user.id %>
   <div>
    <!--  drop down menue to select user -->
+  <div>
+    <h4>Select a user to make a member</h4>
       <%= fields_for (@users) do |u| %>
         <div class= 'field'>
           <%= u.label "All users" %> </br>
@@ -13,7 +15,6 @@
         </div>
       <% end %>
   </div>
-  
   <div>
     <!-- drop down menu to select group to add users to -->
       <%= fields_for (@groups) do |g| %>

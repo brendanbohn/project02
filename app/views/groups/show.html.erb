@@ -37,18 +37,15 @@
       </div>
     <!-- MEMBERS TAB PAGE -->
       <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="members-panel">
-        <h2>Members</h2>
-        <%= link_to "Add Members", edit_membership_path, class:"btn btn-sm btn-primary" %>
-        <p>List of all the current members of this group</p>
-          
-            <div class='col-sm-2'>
-         
-            </div>
-            <div class='col-sm-8 well'>
-              <!--post profile button -->
-              <h3></h3>
+          <h2>Members</h2>
+          <p>List of all the current members of this group</p>
+            <div>
+              <% @group.memberships.each do |member| %>
+                <% user = User.find(member.user_id) %>
+                <p><%= user.username %></p>
+              <% end %>
+        <%= link_to "Add Members", new_membership_path, class:"btn btn-sm btn-primary" %>
         
-        </div>
       </div>
     <!-- EVENTS TAB PAGE -->
       <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="events-panel">
