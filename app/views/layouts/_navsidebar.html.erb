@@ -18,13 +18,13 @@
           <li class="mdl-menu__item">Yet Another Actiony Action</li>
           <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
         </ul>
-
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
-        </div>
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="icon ion-gear-a"></i>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="/logout" id="logout-btn">Logout</a></li>
+        </ul>
       </div>
     </div>
   </header>
