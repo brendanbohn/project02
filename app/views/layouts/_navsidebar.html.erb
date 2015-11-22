@@ -18,13 +18,14 @@
           <li class="mdl-menu__item">Yet Another Actiony Action</li>
           <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
         </ul>
-
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
-        </div>
+        <!-- SETTINGS DROPDOWN -->
+        <button id="settings-menu" class="btn btn-default"><i class="icon ion-gear-a" id="pools_glyph"></i><i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
+        <!-- SETTINGS DROPDOWN OPTIONS -->
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            for="settings-menu">
+          <li class="mdl-menu__item"><a href="/logout">Logout</a></li>
+          <li class="mdl-menu__item"><%=link_to "Edit profile", edit_user_path %></li>
+        </ul>
       </div>
     </div>
   </header>
@@ -58,6 +59,7 @@
         <div class="row">
           <div class="col-sm-12 left-navigation">
             <h6><b>Parenting Mission</b></h6>
+            <p><%= current_user[:mission_statement] %></p>
           </div>
         </div>
 

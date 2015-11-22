@@ -1,65 +1,56 @@
-<section class='intro'>
+<!-- <section class='intro'> -->
+  <!-- GROUP HEADER -->
   <div class="row">
-    <div class="col-sm-4">
-      <h1><%= "#{@group.name}" %></h1>
-
-      <p><%= "#{@group.description}" %></p>
-      number of members in this group
-
-      <%=link_to "Edit Group Information", edit_group_path, class:"btn btn-primary" %>
-
-      <%= link_to "Add Members", edit_membership_path, class:"btn btn-primary" %>
-    </div>
-
-    <div id='group_files' class="col-sm-8">
-    <!-- three tabs representing the three folders (current, backburner, don't contact) --> 
-      <div id="files" data-toggle="tab">
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="col-md-3 active"><a href="#Posts" aria-controls="posts" role="tab" data-toggle="tab">posts</a></li>
-          <li role="presentation" class="col-md-3"><a href="#Membership" aria-controls="Membership" role="tab" data-toggle="tab">Current Members</a></li>
-          <li role="presentation" class="col-md-3"><a href="#Events" aria-controls="Events" role="tab" data-toggle="tab">Current Events</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div id='post_pane'class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="Posts">
-            <h2>Conversations going on in this Group</h2>
-            <p>This is a place where members can share ideas, articles, or other information to help other parents out.</p>
-            <div >
-              <h2>Parents conversations going on this group</h2>
-              <% @posts.each do |post| %>
-                <div class='col-sm-2'>
-                <%= image_tag User.find(post.user_id).image, class:"user_img" %>
-                </div>
-                <div class='col-sm-8 well'>
-                  <!--post profile button -->
-                  <h3><%= link_to "#{post.title}", post_path(post) %></h3>
-                  <p><%=post.content%></p>
-                </div>
-              <% end %>
-            </div> 
-    
-          </div>
-
-          <div role="tabpanel" class="tab-pane" id="Membership">
-            <h2>Members</h2>
-            <p>List of all the current members of this group</p>
-            
-          </div>
-          <div role="tabpanel" class="tab-pane" id="Events">
-            <h2>Current Events</h2>
-            <p>Coordinate, carpools, play time or other events here.  Events can sync to your calendar of choice.</p>
-            
-          </div>
-      </div>
-    </div>
-
-    </div>
-    </div>
-
-
-    
+      <h1 id="group-name"><%= "#{@group.name}" %><%=link_to "Edit Group Information", edit_group_path, class:"btn btn-sm btn-primary edit_group_btn" %><%= link_to "Add Members", edit_membership_path, class:"btn btn-sm btn-primary" %></h1>
+      <h5 id="group-des"><%= "#{@group.description}" %></h5>
+      <p class="no-of-members">X Members</p> <!-- Needs actually number once mems can be added -->
   </div>
-</section>
+  <!-- TABS -->
+  <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="#posts-panel" class="mdl-tabs__tab is-active">Posts</a>
+        <a href="#members-panel" class="mdl-tabs__tab">Members</a>
+        <a href="#events-panel" class="mdl-tabs__tab">Current Events</a>
+    </div>
+    <!-- POSTS TAB PAGE -->
+      <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel is-active" id="posts-panel">
+        <div class="hidden">
+          <h2>Conversations going on in this Group</h2>
+          <p>This is a place where members can share ideas, articles, or other information to help other parents out.</p>
+          <h2>Parents conversations going on this group</h2>
+        </div>
+        <% @posts.each do |post| %>
+          <div class="col-sm-2 pull-left">
+            <%= link_to user_path(post.user) do %>
+            <%= image_tag User.find(post.user_id).image, class:"user_img" %>
+            <%end%>
+          </div>
+          <!--post profile button -->
+          <div class="col-sm-offset-3">
+            <h3><%= post.title %></h3>
+            <p><%=post.content%></p>
+            <p><small><%= link_to "Read More", post_path(post) %></small></p>
+            </div>
+          <hr>
+
+        <% end %>
+      </div>
+    <!-- MEMBERS TAB PAGE -->
+      <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="members-panel">
+          <h2>Members</h2>
+          <p>List of all the current members of this group</p>
+            <div>
+              <% @group.memberships.each do |member| %>
+                <% user = User.find(member.user_id) %>
+                <p><%= user.username %></p>
+              <% end %>
+        <%= link_to "Add Members", new_membership_path, class:"btn btn-sm btn-primary" %>
+        
+      </div>
+    <!-- EVENTS TAB PAGE -->
+      <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="events-panel">
+        <h2>Current Events</h2>
+        <p>Coordinate, carpools, play time or other events here.  Events can sync to your calendar of choice.</p>
+      </div>
+  </div>
+<!-- </section>
