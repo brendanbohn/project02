@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def update          
     @user = User.friendly.find(params[:id])
-    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image)
+    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image, :mission_statement)
     @user.update_attributes(updated_attributes)
     add_default_image @user
     redirect_to @user 
