@@ -21,8 +21,9 @@
         </div>
         <% @posts.each do |post| %>
           <div class="col-sm-2 pull-left">
+            <%= link_to user_path(post.user) do %>
             <%= image_tag User.find(post.user_id).image, class:"user_img" %>
-            <!-- I WOULD LOVE THIS TO LINK TO THE AUTHOR -->
+            <%end%>
           </div>
           <!--post profile button -->
           <div class="col-sm-offset-3">
