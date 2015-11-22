@@ -10,7 +10,7 @@
 </div>
 
 <div id="signup-form" class="sign-form">
-  <div id="signup-title"><h2 class="text-right">Sign Up</h2></div>
+  <div id="signup-title"><h2 class="text-center">Sign Up<a href="#" class="pull-right close">close</a></h2></div>
   <!-- error message -->
   <% if @users_error %>
     <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
@@ -28,7 +28,7 @@
   <% end %>
 </div>
 <div id="signin-form" class="sign-form">
-  <div id="signin-title"><h2 class="text-right">Sign In</h2></div>
+  <div id="signin-title"><h2 class="text-center">Sign In<a href="#" class="pull-right close">close</a></h2></div>
   <!-- error message -->
   <% if @users_error %>
     <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
