@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
 	has_many :connections
 	has_many :posts
-	has_many :groups
-	has_many :children
+  has_many :children
   has_one :questionnaire
+  has_many :memberships
+	has_many :groups, :through => :memberships
+
 
   has_attached_file :avatar,
                     :styles => { :medium => "150x150>", :thumb => "44x44#" },
@@ -42,6 +44,7 @@ class User < ActiveRecord::Base
   # def image
   #   image || "5.png"
   # end
+
 
   def add_default_image
     # if value.blank?

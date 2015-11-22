@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121025850) do
+ActiveRecord::Schema.define(version: 20151122210615) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +54,17 @@ ActiveRecord::Schema.define(version: 20151121025850) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
     t.string   "author"
+    t.string   "content"
     t.integer  "user_id"
     t.integer  "group_id"
     t.datetime "created_at", null: false
@@ -81,6 +89,7 @@ ActiveRecord::Schema.define(version: 20151121025850) do
     t.string   "email"
     t.text     "bio"
     t.string   "username"
+<<<<<<< HEAD
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "image"
@@ -89,6 +98,13 @@ ActiveRecord::Schema.define(version: 20151121025850) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+=======
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "image"
+    t.string   "slug"
+    t.text     "mission_statement"
+>>>>>>> 8b9c940921df7500b846e4691c392660d42ccc95
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

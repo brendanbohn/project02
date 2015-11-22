@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
   root 'welcome#index'
   
+  get '/logout', to: 'sessions#destroy', as: :logout
 
   resources :users
   resources :questionnaires
@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :groups
   resources :comments
   resources :compatabilities
+  resources :memberships
 
 end
