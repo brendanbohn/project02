@@ -189,7 +189,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   material_design_lite-rails
-  paperclip
+  paperclip (~> 4.3)
   pg
   pry-rails
   rails (= 4.2.4)

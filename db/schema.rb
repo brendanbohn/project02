@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20151122210615) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -88,11 +89,22 @@ ActiveRecord::Schema.define(version: 20151122210615) do
     t.string   "email"
     t.text     "bio"
     t.string   "username"
+<<<<<<< HEAD
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "image"
+    t.string   "slug"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+=======
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "image"
     t.string   "slug"
     t.text     "mission_statement"
+>>>>>>> 8b9c940921df7500b846e4691c392660d42ccc95
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
