@@ -14,7 +14,7 @@
           <%= f.collection_select :user_id, @users, :id, :username, include_blank: true %>
         </div>
       <% end %>
-  </div>
+  </div> 
   <div>
     <!-- drop down menu to select group to add users to -->
       <%= fields_for (@groups) do |g| %>

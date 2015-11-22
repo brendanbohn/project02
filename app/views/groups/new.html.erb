@@ -12,21 +12,6 @@
       <%= g.text_field :description, class:"form-control", placeholder: "general focus of the group descussions" %>
     </div>
       <div>
-      <!-- creat second record for membership -->
-        <%= fields_for (@membership) do |m| %>
-          <div class= 'field'>
-            <!-- person making the group is automatic member to group -->
-            <%= m.hidden_field :user_id, :value => current_user.id %>
-          </div>
-           <div>
-            <!--  grab id of group that is being made -->
-             <%= m.hidden_field :group_id, :value => @group.id %>
-           </div>
-
-           <div>
-  
-        <% end %>
-      </div>
 
     <%= g.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
 
