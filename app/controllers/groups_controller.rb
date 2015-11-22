@@ -8,11 +8,14 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @groups = Group.all
     @posts = Post.where(group_id: @group).order(created_at: :DESC)
-    @user = User.friendly.find(params[:id])
+    @user = User.all
     @current_user= current_user
     @post = Post.new
     @memberships = Membership.all
     @membership = Membership.new
+
+    
+    
     render :show
   end
 
@@ -20,16 +23,17 @@ class GroupsController < ApplicationController
     @group = Group.new
     @current_user= current_user
     @users = User.all
-    @membership.user_id = current_user.id
+    @membership = Membership.new
     render :new
   end
 
   def create
     group_params = params.require(:group).permit(:name, :description)
     @group = Group.create(group_params)
+    membership_params = params.require(:membership).permit(:user_id, :group_id)
+    @membership = Membership.create(membership_params)
     @current_user= current_user
     @users = User.all
-    @memberships.user_id = current_user.id
      if @group.save
       redirect_to @group
     else 
@@ -44,6 +48,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @membership = Membership.new
     @group = Group.find(params[:id])
     render :edit
   end

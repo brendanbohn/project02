@@ -1,20 +1,26 @@
 <section class='intro'>
 <div class="col-sm-10 col col-sm-offset-1 well clearfix">
-<%= form_for @group do |f| %>
-  
-  <div>
-    <h3>Add a new Group:</h3>
-    <%= f.text_field :name, class:"form-control", placeholder: "Group Name" %>
-  </div>
-  
-  <div>
-    <h3>Description of Group:</h3>
-    <%= f.text_field :description, class:"form-control", placeholder: "General focus of the group descussions" %>
-  </div>
+  <%= form_for @group do |f| %>
+    <div>
+      <h3>Change Group Name:</h3>
+      <%= f.text_field :name, class:"form-control", placeholder: "Group Name" %>
+      </br>
+      <h3>Change Description of Group:</h3>
+      <%= f.text_field :description, class:"form-control", placeholder: "General focus of the group descussions" %>
+    </div>
 
-  <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
-
-<% end %>
+    <h4>Select a user to make a member</h4>
+    <div>
+      <%= field_for @membership do |m| %>
+        <%= m.collection_select :user_id, @users, :id, :username, include_blank: true %>
+        <div>
+         <!--  grab id of this group -->
+          <%= m.hidden_field :group_id, :value => @group.id %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+  <% end %>
 </div>
   
 </section>
