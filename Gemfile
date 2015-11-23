@@ -6,7 +6,7 @@ gem 'rails', '4.2.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-
+gem 'rails_12factor', group: :production
 
 gem 'material_design_lite-rails'
 
@@ -60,3 +60,4 @@ group :development do
   gem 'spring'
 end
 
+ruby '2.0.0'

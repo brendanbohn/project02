@@ -1,53 +1,45 @@
 <div class="container">
-  <div class="row">
-
-    <div class="col-sm-4">
-      
-      <div>
-        <%= link_to "View Group", group_path(@group) %> 
-      </div>
-      
-      <div>
-        <!-- TODO: should display the author of post -->
-        <p>Author: <%= User.find(@post.user_id).username %></p>
-      </div>
-
-
+  <div class="row col-sm-offset-1 cold-sm-9">
+    <h3 id="post_title"><%= @post.title %></h3>
+    <!-- TODO: should display the author of post -->
+    <div class="col-sm-1">
+      <img src="<%= User.find(@post.user_id).image %>" id="author_img">
     </div>
-
-    <div class="col-sm-8">
-      <h1><%= @post.title %></h1>
-      <p><%= @post.content %></p>
-      <!-- convert group id to group name -->
-      <h4><%= @post.group_id %></h4>
-      <% if session[:user_id] == @user.id %>
-        <div class="row">
-          <%= button_to "Edit Post", edit_post_path, class:"pairBtn btn btn-default raised", method: :get %> 
-          <%= button_to "Delete Post", post_path, class:"pairBtn btn btn-default", method: :delete %>
-        </div>
-      <% end %>
-
-      <!-- Show Comments -->
-       <div class="row">
-       <h2> Comments: </h2>
-        <ul>
-          <% @post.comments.each do |c| %>
-          <li> <%= c.content %> </li>
-          <% end %>
-        </ul>
+    <div class="col-sm-offset-1 col-sm-3" id="post_deets">
+      <strong>By:</strong> <%= User.find(@post.user_id).username %> <br> in <em><%= link_to "#{@group.name}", group_path(@group) %> </em>
       </div>
-      <!-- Add Comment Form -->
-      <div class="row">
-        <h2>Add a comment:</h2>
- 
-      </div>
-     <!--  -->
-
-    </div>
-
-
-    <!-- TODO customization:  when this is not the current users post display add comment forms -->
-
-
   </div>
+  <hr>
+    <!-- convert group id to group name -->
+  <div class="row">
+    <div class="col-sm-offset-2 col-sm-7">
+      <p><%= @post.content %></p>
+    <% if session[:user_id] == @user.id %>
+      <div class="row">
+        <%= button_to "Edit Post", edit_post_path, class:"pairBtn btn btn-default raised", method: :get %> 
+        <%= button_to "Delete Post", post_path, class:"pairBtn btn btn-default", method: :delete %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  
+
+  <!-- WILL UNHIDE AND STYLE ONCE COMMENTS ARE POSSIBLE -->
+  <span class="hidden">
+  <!-- Show Comments -->
+  <div class="row">
+    <h2> Comments: </h2>
+    <ul>
+      <% @post.comments.each do |c| %>
+      <li><%= c.content %> </li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- Add Comment Form -->
+  <div class="row">
+    <h2>Add a comment:</h2>
+  </div>
+ <!--  -->
+ </span>
+<!-- TODO customization:  when this is not the current users post display add comment forms -->
 </div>
