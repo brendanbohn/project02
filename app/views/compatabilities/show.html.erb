@@ -6,7 +6,9 @@
         <center><img style="width:100px;" src="<%=user.image%>" ></center>
         </br>
         <p><center><%= user.username%></center></p>
-        <%=compat current_user, user%>
+        <div class="compat">
+          <center><%=score_star (compat current_user, user)%></center>
+        </div>
       
       <%end%>
     </div>
