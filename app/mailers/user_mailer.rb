@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
 	def welcome_email(user)
 		@user = user
-		@url = "http://www.google.com"
+		@url = "https://co-parent.herokuapp.com/"
 		mail(to: @user.email, subject: "test welcome email")
 	end
 end
