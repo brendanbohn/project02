@@ -41,6 +41,8 @@ gem 'bootstrap-material-design'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 
+gem "figaro"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

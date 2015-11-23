@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # Tell the UserMailer to send a welcome email after save
-      # UserMailer.welcome_email(@user).deliver_now
+      UserMailer.welcome_email(@user).deliver_now
       login(@user) # <-- login the user
       redirect_to user_path(@user) # <-- go to show
     else
