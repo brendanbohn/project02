@@ -41,6 +41,20 @@
       <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
     </div>
     <hr class='tophr'>
+    <!-- list of firends -->
+    <div>
+     <h2>Friends</h2>
+      <ul>
+      <!-- change @user.* to function built on model for actual friends  -->
+        <% for friendship in @user.friendships %>
+          <li>
+            <%=h friendship.friend.username %>
+            (<%= link_to "remove", friendship, :method => :delete %>)
+          </li>
+        <% end %>
+      </ul>
+     <p><%= link_to "Find Friends", compatability_path %></p>
+    </div>
     <div class="row post_display">
       <% @user.posts.each do |p| %> 
         <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>

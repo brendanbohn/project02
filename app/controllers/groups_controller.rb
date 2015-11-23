@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    p params[:id]
     @group = Group.find(params[:id])
     @groups = Group.all
     @posts = Post.where(group_id: @group).order(created_at: :DESC)

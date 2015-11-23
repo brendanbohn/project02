@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
 	has_many :groups, :through => :memberships
   has_many :compatabilities
 
+  has_many :friendships
+  has_many :friends, :through => :friendships, :class_name => "User"
+
+
+
 
   has_attached_file :avatar,
                     :styles => { :medium => "150x150>", :thumb => "44x44#" },
