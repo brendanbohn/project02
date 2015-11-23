@@ -5,12 +5,12 @@
 			<div class="container">
 				<div class="row"><!-- PARENT INFO ROW -->
 					<div class="col-md-2">
-						<%= image_tag "#{rand(7)}.png", :class => "avatar-parent" %>
+						<%= image_tag "#{user.image}", :class => "avatar-parent" %>
 					</div>
 					<div class="col-md-7" id="parent-header">
 						<h4 class="parent_name"><%= user[:username] %></h4>
 						<h6 class="parent_city"><%= user[:city]  %></h6>
-						<p><%= user[:bio]  %></p>
+						<p><%= user[:mission_statement]  %></p>
 					</div>
 				</div> <!-- end row -->
 				<div class="child-section row">
@@ -19,13 +19,13 @@
 				    <div class="row">
 				      <div class="col-sm-3">
 				        <!-- Image goes here -->
-				        <%= image_tag "#{rand(7)}.png", :class => "avatar-child" %>
+				        <%= image_tag "#{child.image}", :class => "avatar-child" %>
 				      </div>
 				      <div class="col-sm-6">
 				        <!-- Age, etc. goes here -->
 				        <h5>
 					        <%= child[:name] %>, 
-					        <small><%= calculate_age(child[:birthday]) %></small>
+					        <small><strong>Age:</strong> <%= calculate_age(child[:birthday]) %></small>
 				        </h5>
 					<span class="hobbies-sec"><%= child[:bio] %></span>
 				      </div>
@@ -36,6 +36,7 @@
 
 				</div> <!-- end child row -->
 
+
 			</div> <!-- end container -->
 		</div> <!-- close mdl-card__supporting-text -->
 
@@ -43,20 +44,22 @@
 	  <!--Begin accordion-->
 	  
 	  <div class="accordion">
-	      <div class="panel-group" id="accordion">
+	      <div class="panel-group col-sm-offset-1 col-sm-10" id="accordion">
 	          <div>
 	              <div id="<%=user.id%>" class="panel-collapse collapse">
 	                  <div class="panel-body">
-	                  	<h6 class="text-center">Bio</h6>
-	                      <p><%=user.bio%></p>
-	                  </div>
+	                      <p><%=user.bio%><br>
+	                      <%= link_to "See more", user_path(user), :class => "pull-right" %></p>
+	                  </div> <!-- END DROPDOWN CONTENT -->
 	              </div>
 	          </div>
 	  
 	      </div>
+	      <div class="col-sm-11">
 	      <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored pull-right expand-button" data-toggle="collapse" data-parent="#accordion" href="#<%=user.id%>">
 	        <i class="material-icons">keyboard_arrow_down</i>
 	      </button>
+	      </div>
 	  </div>
 	  
 	  <!--end accordion-->
