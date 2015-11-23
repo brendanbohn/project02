@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
     @post = Post.new
     @memberships = Membership.all
     @membership = Membership.new
+    @event = Event.new
 
     
     

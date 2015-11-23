@@ -52,6 +52,22 @@
       <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="events-panel">
         <h2>Current Events</h2>
         <p>Coordinate, carpools, play time or other events here.  Events can sync to your calendar of choice.</p>
+        <div>
+          <h3>Create an Event</h3>
+          <% if @events_errors %>
+            <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
+          <% end %>
+          <%= form_for @event do |f| %>
+            <%=f.hidden_field :group_id, :value => @group.id %>
+            <%= f.text_field :title, class: "form-control", placeholder: 'Title', autofocus: true %>
+            <%= f.text_area :description, class: "form-control", placeholder: 'Description' %>
+            <%= f.date_field :date, class: "form-control" %>
+            <br>
+            <div class="text-right">
+              <%= f.submit 'signup', value: "Create Event!", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
       </div>
   </div>
 <!-- </section>
