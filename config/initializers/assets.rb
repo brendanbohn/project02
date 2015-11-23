@@ -13,6 +13,7 @@ Rails.application.config.assets.precompile += %w(
  children.css
  comments.css
  compatabilities.css
+ friendships.css
  groups.css
  memberships.css
  posts.css

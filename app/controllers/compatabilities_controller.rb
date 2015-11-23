@@ -18,6 +18,7 @@ class CompatabilitiesController < ApplicationController
     @users = User.all
     @questionnaires = Questionnaire.all
     @compatabilities = Compatability.all
+    @friendships = Friendship.all
   end
 
 end

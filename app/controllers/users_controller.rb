@@ -11,6 +11,8 @@ class UsersController < ApplicationController
     @compatabilities = Compatability.all
     @questionnaires = Questionnaire.all
     @groups = Group.all
+    @friendships = Friendship.all
+    @users = User.all
     render :show
   end
 
