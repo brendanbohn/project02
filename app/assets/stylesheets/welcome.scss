@@ -104,7 +104,7 @@ h2, input::-webkit-input-placeholder, button {
   position:relative;
   top:-70px;
   &:hover {
-    padding: 20px 60px;
+    background-color: #005c99!important;
   }
 }
 #signin-button {
@@ -112,7 +112,7 @@ h2, input::-webkit-input-placeholder, button {
   position:relative;
   top:-70px;
   &:hover {
-    padding: 20px 60px;
+    background-color: #005c99!important;
   }
 }
 
@@ -125,7 +125,7 @@ h2, input::-webkit-input-placeholder, button {
   margin: 0 -10px;
   z-index: 1;
   &:hover {
-    padding: 50px 60px;
+    background-color: #006666!important;
   }
 }
 
