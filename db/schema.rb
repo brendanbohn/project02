@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20151123180143) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "author"
     t.string   "content"
+    t.string   "author"
     t.integer  "user_id"
     t.integer  "group_id"
     t.datetime "created_at", null: false
@@ -101,11 +101,11 @@ ActiveRecord::Schema.define(version: 20151123180143) do
     t.datetime "updated_at",          null: false
     t.string   "image"
     t.string   "slug"
-    t.text     "mission_statement"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "mission_statement"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
