@@ -13,6 +13,8 @@ class GroupsController < ApplicationController
     @post = Post.new
     @memberships = Membership.all
     @membership = Membership.new
+    @event = Event.new
+    @events = Event.where(group_id: @group).order(created_at: :DESC)
 
     
     

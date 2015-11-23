@@ -20,5 +20,12 @@ $(document).ready(function(){
 		$("#signin-form").show();
 		$('#landing-content').addClass('dim');
 	});
+	$(".expand-button").click(function(e){
+		e.preventDefault();
+		$(".down-arrow").toggle();
+		$(".up-arrow").toggle();
+		componentHandler.upgradeDom();
+	});
+
 	
 });
