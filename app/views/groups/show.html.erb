@@ -69,5 +69,15 @@
           <% end %>
         </div>
       </div>
+      <div id="event-stream">
+        <% @events.each do |e| %>
+          <div class="col-sm-offset-3">
+            <h3><%= e.title %></h3>
+            <p><%= e.description%></p>
+            <p><small><%= e.date %></small></p>
+            </div>
+          <hr>
+        <% end %>
+      </div>
   </div>
 <!-- </section>
