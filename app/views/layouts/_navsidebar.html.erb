@@ -15,6 +15,17 @@
         <!-- DROPDOWN OPTIONS -->
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
             for="demo-menu-lower-right">
+
+
+            <% @user.memberships.each do |group| %>
+              <% group = Group.find(group.group_id) %>
+              <%= link_to group_path(group.id) do%>
+                <li class="mdl-menu__item"><%= group.name %></li>
+              <%end%>
+            <% end %>
+
+
+
           <li class="mdl-menu__item">Some Action</li>
           <li class="mdl-menu__item">Another Action</li>
           <li class="mdl-menu__item">Yet Another Actiony Action</li>
@@ -56,6 +67,8 @@
             <p><strong>Parenting Mission:</strong> <%= current_user[:mission_statement] %></p>
             <p>Groups</p>
             <p><%= "Joined on #{current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
+
+            
 
           </div>
         </div>

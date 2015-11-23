@@ -17,30 +17,38 @@
       <div>
         <% if session[:user_id] == @user.id %>
           <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
-          <hr>
         <%end%>  
+          <hr>
       </div>
     </div>
    
      
     <div class="row">
-      GROUPS
       <div>
+      <h6>Belongs to Groups:</h6>
+      <span class="group_list">
         <% @user.memberships.each do |group| %>
           <% group = Group.find(group.group_id) %>
           <%= link_to group_path(group.id) do%>
-            <p><%= group.name %></p>
+            <%= group.name %></br>
           <%end%>
         <% end %>
+        </span>
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+
+
+
+
+
+
+
+  <div class="col-sm-6 right-col">
  <!--  right column -->
-    <div class="row">
+    <div class="row" id="parenting_phil">
       <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
     </div>
-    <hr class='tophr'>
     <div class="row post_display">
       <% @user.posts.each do |p| %> 
         <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
