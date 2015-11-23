@@ -1,16 +1,25 @@
-<div class="user_data container">
-  <div class="col-sm-4">
+<div class="container">
+<!-- left column -->
+  <div class="col-sm-4 user_data">
     <div class="row">
       <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
       <div><%= image_tag @user.image, class:"user_img" %> </div><br>
       <div class="compat">
         <!-- compatability -->
-        <center><%=score_star (compat current_user, @user)%></center>
+        <!-- hide if on current profile -->
+        <% if session[:user_id] != @user.id %>
+          <center><%=score_star (compat current_user, @user)%></center>
+        <%end%>
       </div>
       <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
       <strong>Home City:</strong> <%= "#{@user.city}" %></p>
-      <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
-      <hr>
+      <!-- hide if not that users profile -->
+      <div>
+        <% if session[:user_id] == @user.id %>
+          <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
+          <hr>
+        <%end%>  
+      </div>
     </div>
    
      
@@ -19,27 +28,35 @@
       <div>
         <% @user.memberships.each do |group| %>
           <% group = Group.find(group.group_id) %>
-          <p><%= group.name %></p>
+          <%= link_to group_path(group.id) do%>
+            <p><%= group.name %></p>
+          <%end%>
         <% end %>
       </div>
     </div>
   </div>
-    <div class="col-sm-6">
+  <div class="col-sm-6">
+ <!--  right column -->
     <div class="row">
       <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
     </div>
-    <hr>
-    <div class="row">
+    <hr class='tophr'>
+    <div class="row post_display">
       <% @user.posts.each do |p| %> 
-      <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
-      <div>
-      <%= button_to "Edit Post", edit_post_path(p), class:"btn post_btns btn-xs", method: :get %>
-      <%= button_to "Delete Post", post_path(p), class:"btn post_btns btn-xs", method: :delete %>
-      </div>
-      <p class="pcontent"><%= p.content %> </p>
-      <!-- convert group id to group name -->
-      <p><strong>Originally Posted in Group:</strong> <%= p.group_id %></p>
-      <hr>
+        <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
+        <p class="pcontent"><%= p.content %> </p>
+        <div>
+          <!-- convert group id to group name -->
+          <p class="group_display"><strong>Originally Posted in Group:</strong> 
+          <br><%= p.group.name %></p>
+          <!-- hide if not that users profile -->
+          <% if session[:user_id] == @user.id %>
+          <%= button_to "Edit Post", edit_post_path(p), class:"btn pairBtn post_btns btn-xs", method: :get %>
+          <%= button_to "Delete Post", post_path(p), class:"btn pairBtn post_btns btn-xs", method: :delete %>
+          <%end%>
+        </div>
+        <br>
+        <hr class="hrline">
       <% end %>
     </div>
   </div>
