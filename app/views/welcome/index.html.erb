@@ -11,34 +11,38 @@
 
 <div id="signup-form" class="sign-form">
   <div id="signup-title"><h2 class="text-center">Sign Up<a href="#" class="pull-right close">close</a></h2></div>
-  <!-- error message -->
-  <% if @users_error %>
-    <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
-  <% end %>
-  <%= form_for @user do |f| %>
-    <%= f.text_field :full_name, class: "form-input", placeholder: 'Full Name(s)', autofocus: true %>
-    <%= f.text_field :username, class: "form-input", placeholder: 'username' %>
-    <%= f.text_field :city, class: "form-input", placeholder: 'City' %>
-    <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
-    <%= f.file_field :avatar,  class: "form-control"%>
-    <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
-    <%= f.password_field :password_confirmation, class: "form-input", placeholder: 'confirm password' %>
-    <div class="text-right">
-      <%= f.submit 'signup', value: "Sign up!", class: "button" %>
-    </div>
-  <% end %>
+    <!-- error message -->
+    <% if @users_error %>
+      <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
+    <% end %>
+    <%= form_for @user do |f| %>
+      <%= f.text_field :full_name, class: "form-input", placeholder: 'Full Name(s)', autofocus: true %>
+      <%= f.text_field :username, class: "form-input", placeholder: 'username' %>
+      <%= f.text_field :city, class: "form-input", placeholder: 'City' %>
+      <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
+      <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
+      <%= f.password_field :password_confirmation, class: "form-input", placeholder: 'confirm password' %>
+      <div class="text-right">
+        <%= f.submit 'signup', value: "Sign up!", class: "button" %>
+      </div>
+    <% end %>
 </div>
 <div id="signin-form" class="sign-form">
   <div id="signin-title"><h2 class="text-center">Sign In<a href="#" class="pull-right close">close</a></h2></div>
-  <!-- error message -->
-  <% if @users_error %>
-    <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
-  <% end %>
-  <%= form_for @user, url: "/sessions", method: "POST" do |f| %>
-    <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
-    <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
-    <div class="text-right">
-      <%= f.submit 'signin', value: "Sign In!", class: "button" %>
-    </div>
-  <% end %>
+    <!-- error message -->
+    <% if @users_error %>
+      <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
+    <% end %>
+    <%= form_for @user, url: "/sessions", method: "POST" do |f| %>
+      <%= f.email_field :email, class: "form-input", placeholder: 'Email' %>
+      <%= f.password_field :password, class: "form-input", placeholder: 'password' %>
+      <div class="text-right">
+        <%= f.submit 'signin', value: "Sign In!", class: "button" %>
+      </div>
+    <% end %>
 </div>
+
+
+
+
+

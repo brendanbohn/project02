@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image)
+    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image, :avatar)
     @user = User.new(user_params)
     p params[:user][:email]
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # Tell the UserMailer to send a welcome email after save
-      UserMailer.welcome_email(@user).deliver_now
+      # UserMailer.welcome_email(@user).deliver_now
       login(@user) # <-- login the user
       redirect_to user_path(@user) # <-- go to show
     else
@@ -37,22 +37,9 @@ class UsersController < ApplicationController
 
 
   def add_default_image user
-    # if value.blank?
-    #   write_attribute :image, "/images/5.png"
-    # else
-    #   write_attribute :image, value
-    # end
-    p "hereesisis ghd sdl !!!! #{user.image.blank?}" 
     user.image = "5.png" if user.image.blank?
     user.save
-    p user
   end
-
-  # def image
-  #   image = "5.png" if image.blank?
-  #   if image.blank? 
-      
-  # end
 
 
   def destroy
@@ -66,7 +53,7 @@ class UsersController < ApplicationController
 
   def update          
     @user = User.friendly.find(params[:id])
-    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image, :mission_statement)
+    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image, :avatar, :mission_statement)
     @user.update_attributes(updated_attributes)
     add_default_image @user
     redirect_to @user 
