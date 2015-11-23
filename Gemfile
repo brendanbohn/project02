@@ -60,3 +60,4 @@ group :development do
   gem 'spring'
 end
 
+ruby '2.2.1'

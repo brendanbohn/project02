@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   resources :comments
   resources :compatabilities
   resources :memberships
+  resources :events
+  resources :friendships
+
+
 
 end
