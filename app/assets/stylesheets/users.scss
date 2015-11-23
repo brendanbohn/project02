@@ -63,7 +63,37 @@ h4 {
 	color: black;
 }
 
+//user show page
 // compatability star images
 .compat img {
 	max-width: 30px;
+}
+
+.post_display {
+	text-align: left;
+
+}
+
+.pairBtn {
+	float: right;
+	display: inline;
+	margin-right: 5px;
+	margin-top: 15px;
+}
+
+.hrline {
+	clear: both;
+}
+
+.group_display {
+	float: left;
+}
+
+.tophr {
+	border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 8px 1px black;
+    margin-top: -5px;
+   	width: 120%;
+   	margin-left: -10px;
 }

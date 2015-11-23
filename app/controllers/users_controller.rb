@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @current_user= current_user
     @compatabilities = Compatability.all
     @questionnaires = Questionnaire.all
+    @groups = Group.all
     render :show
   end
 

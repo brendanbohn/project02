@@ -35,7 +35,10 @@
         <div class="row">
           <div class="col-sm-12">
             <div class="image-cropper">
-                <%= image_tag current_user.image, class:"img rounded", id: "user_profile_pic" %>
+              <!-- clickable image -->
+              <%= link_to current_user do %>
+                <img class='img rounded' src="<%=current_user.image%>" >
+              <%end%>
             </div>
           </div>
         </div>
