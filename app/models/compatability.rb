@@ -1,4 +1,4 @@
 class Compatability < ActiveRecord::Base
-  belongs_to :users
+  has_many :users
   belongs_to :questionnaires
 end

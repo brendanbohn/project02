@@ -8,6 +8,19 @@
       <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
       <hr>
     </div>
+    <div>
+    <!-- compatability -->
+      <% @user.compatabilities.each do |one| %>
+        <% user = User.find(one.user_id)%>
+        <% if (current_user == user) %>
+          <!-- do not show on current users page-->
+          <p><%= one.score %></p>
+         
+        <%else%>
+          <p><%= one.score %></p>
+        <%end%>
+      <% end %>
+    </div>
     <div class="row">
       GROUPS
       <div>

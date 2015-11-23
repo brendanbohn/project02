@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_one :questionnaire
   has_many :memberships
 	has_many :groups, :through => :memberships
+  has_many :compatabilities
 
 
   has_attached_file :avatar,
