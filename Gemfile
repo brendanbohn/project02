@@ -36,6 +36,7 @@ gem 'ffaker'
 gem 'friendly_id'
 
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk'
 
 gem 'bootstrap-material-design'
 gem 'autoprefixer-rails'
