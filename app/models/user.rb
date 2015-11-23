@@ -41,9 +41,4 @@ class User < ActiveRecord::Base
     @user.try(:authenticate, params[:password])
   end
 
-
-  # def add_default_image
-  #   image = "5.png" if image.blank?
-  #   save
-  # end
 end

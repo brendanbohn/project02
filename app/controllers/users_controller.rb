@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image, :avatar)
+    user_params = params.require(:user).permit(:full_name, :city, :password, :email, :bio, :username, :image)
     @user = User.new(user_params)
     p params[:user][:email]
 
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       login(@user) # <-- login the user
       redirect_to user_path(@user) # <-- go to show
     else
+
       render :new
     end
   end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
 
   def update          
     @user = User.friendly.find(params[:id])
-    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image, :avatar, :mission_statement)
+    updated_attributes = params.require(:user).permit(:full_name, :username, :city, :bio, :image, :mission_statement)
     @user.update_attributes(updated_attributes)
     add_default_image @user
     redirect_to @user 
