@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
                     :styles => { :medium => "150x150>", :thumb => "44x44#" },
                     :default_url => "/images/:style/missing.png"
 
-  validates_attachment :avatar, :presence => true,
+  validates_attachment :avatar, #:presence => true,
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] },
                        :size => { :in => 0..1000.kilobytes }
 
@@ -41,19 +41,9 @@ class User < ActiveRecord::Base
     @user.try(:authenticate, params[:password])
   end
 
-  # def image
-  #   image || "5.png"
+
+  # def add_default_image
+  #   image = "5.png" if image.blank?
+  #   save
   # end
-
-
-  def add_default_image
-    # if value.blank?
-    #   write_attribute :image, "/images/5.png"
-    # else
-    #   write_attribute :image, value
-    # end
-  
-    image = "5.png" if image.blank?
-    save
-  end
 end
