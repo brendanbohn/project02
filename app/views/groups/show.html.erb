@@ -1,9 +1,9 @@
 <!-- <section class='intro'> -->
   <!-- GROUP HEADER -->
   <div class="row">
-      <h1 id="group-name"><%= "#{@group.name}" %><%=link_to "Edit Group Information", edit_group_path, class:"btn btn-sm btn-primary edit_group_btn" %><%= link_to "Add Members", edit_membership_path, class:"btn btn-sm btn-primary" %></h1>
+      <h1 id="group-name"><%= "#{@group.name}" %><%=link_to "Edit Group Information", edit_group_path, class:"btn btn-sm btn-primary edit_group_btn" %><%= link_to "Add Members", new_membership_path, class:"btn btn-sm btn-primary" %></h1>
       <h5 id="group-des"><%= "#{@group.description}" %></h5>
-      <p class="no-of-members">X Members</p> <!-- Needs actually number once mems can be added -->
+      <p class="no-of-members"><%= @memberships.length-1 %> Members</p> <!-- Needs actually number once mems can be added -->
   </div>
   <!-- TABS -->
   <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
@@ -35,22 +35,26 @@
 
         <% end %>
       </div>
+
+
+
     <!-- MEMBERS TAB PAGE -->
-      <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="members-panel">
-          <h2>Members</h2>
-          <p>List of all the current members of this group</p>
-            <div>
-              <% @group.memberships.each do |member| %>
-                <% user = User.find(member.user_id) %>
-                <p><%= user.username %></p>
-              <% end %>
-            </div>
-        <%= link_to "Add Members", new_membership_path, class:"btn btn-sm btn-primary" %>
-        
+      <div class="col-sm-offset-2 col-sm-8 mdl-tabs__panel" id="members-panel">
+        <% @group.memberships.each do |member| %>
+          <center><div class="mem_card col-sm-3">
+            <% user = User.find(member.user_id) %>
+            <img src="<%= user.image %>" class="mem_img">
+            <p><%= link_to "#{user.username}", user_path(user) %></p>
+          </div></center>
+        <% end %>
       </div>
+    
+
+
+
+
     <!-- EVENTS TAB PAGE -->
       <div class="col-sm-offset-1 col-sm-10 mdl-tabs__panel" id="events-panel">
-        <h2>Current Events</h2>
         <p>Coordinate, carpools, play time or other events here.  Events can sync to your calendar of choice.</p>
         <div>
           <h3>Create an Event</h3>

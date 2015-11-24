@@ -1,21 +1,18 @@
-<section class='intro'>
-<div class="col-sm-10 col col-sm-offset-1 well clearfix">
-<!-- create new group record -->
-  <%= form_for @group do |g| %>
-    <div>
-      <h3>Add a new Group:</h3>
-      <%= g.text_field :name, class:"form-control", placeholder: "Group Name" %>
-    </div>
-    
-    <div>
-      <h3>Description of Group:</h3>
-      <%= g.text_field :description, class:"form-control", placeholder: "general focus of the group descussions" %>
-    </div>
+<div class="container">
+  <div class="col-sm-10 col-sm-offset-1 well">
+  <!-- create new group record -->
+    <%= form_for @group do |g| %>
       <div>
+        <h3>Add a new Group:</h3>
+        <%= g.text_field :name, class:"form-control", placeholder: "Group Name" %>
+      </div>
+      <div>
+        <h3>Description of Group:</h3>
+        <%= g.text_field :description, class:"form-control", placeholder: "General focus of the group descussions" %>
+      </div>
 
-    <%= g.submit "Submit", class:"btn btn-primary btn-lg pull-right" %>
+      <%= g.submit "Create Group", class:"btn btn-primary btn-lg pull-right" %>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
-  
-</section>
