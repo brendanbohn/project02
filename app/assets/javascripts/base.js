@@ -30,6 +30,7 @@ $(document).ready(function(){
 
 	$('#how').click(function(){
 		console.log('clicked the how');
+		$('body').css('background-color','#bfbfbf');
 		$("#how-content").show();
 		$('body').animate({scrollTop: $('#how-content').offset().top}, "slow");
 		return false;
