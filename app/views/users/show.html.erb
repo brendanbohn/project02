@@ -3,17 +3,47 @@
 <div class="container">
 
 <!-- left column -->
+
 <div class="col-sm-4 user_data"> <!-- LEFT COLUMN -->
 
 
   <div class="row"> <!-- USER DATA -->
 
-
-
   <% if session[:user_id] != @user.id %>
     <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br></h4>
     <div>
       <%= image_tag @user.image, class:"user_img" %>
+    </div>
+    <br>
+      <div class="compat">
+        <!-- compatability -->
+        <!-- hide if on current profile -->
+        <% if session[:user_id] != @user.id %>
+          <center><%=score_star (compat current_user, @user)%></center>
+        <%end%>
+      </div>
+      <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
+      <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+      <!-- hide if not that users profile -->
+      <div>
+        <% if session[:user_id] == @user.id %>
+          <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
+          <hr>
+        <%end%>  
+      </div>
+    </div>
+   
+     
+    <div class="row">
+      GROUPS
+      <div>
+        <% @user.memberships.each do |group| %>
+          <% group = Group.find(group.group_id) %>
+          <%= link_to group_path(group.id) do%>
+            <p><%= group.name %></p>
+          <%end%>
+        <% end %>
+      </div>
     </div>
     <br>
     <div class="compat">
