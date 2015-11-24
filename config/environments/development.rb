@@ -48,7 +48,8 @@ Rails.application.configure do
     :user_name           =>  ENV["GMAIL_USERNAME"],
     :password            =>  ENV["GMAIL_PASSWORD"],
     :authentication      =>  'plain',
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => true,
+    :openssl_verify_mode => 'none'
   }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
