@@ -1,4 +1,7 @@
+<!-- SOMETHING JACKED UP WITH DIVS -->
+
 <div class="container">
+
 <!-- left column -->
   <div class="col-sm-4 user_data">
     <div class="row">
@@ -36,11 +39,13 @@
         <% end %>
       </div>
     </div>
-  </div>
-  <div class="col-sm-6">
- <!--  right column -->
-    <div class="row">
-      <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
+    <br>
+    <div class="compat">
+      <!-- compatability -->
+      <!-- hide if on current profile -->
+      <% if session[:user_id] != @user.id %>
+        <center><%=score_star (compat current_user, @user)%></center>
+      <%end%>
     </div>
     <hr class='tophr'>
     <!-- list of firends -->
@@ -106,8 +111,79 @@
           <%end%>
         </div>
         <br>
-        <hr class="hrline">
+        <% end %>
+      <%end%>
+
+
+
+
+    </div> <!-- CLOSE PENDING ROW -->
+    <div> <!-- EDITING BUTTON -->
+      <% if session[:user_id] == @user.id %>
+        <%= link_to "Find Friends", compatability_path, class:"btn btn-sm btn-primary" %><%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
+      <%end%>  
+      <hr>
+    </div> <!-- CLOSE BUTTONS -->
+  </div> <!-- CLOSE DATA ROW -->
+
+  <div class="row"> <!-- GROUPS -->
+    <h6>Belongs to Groups:</h6>
+    <div class="group_list">
+      <% @user.memberships.each do |group| %>
+        <% group = Group.find(group.group_id) %>
+        <%= link_to group_path(group.id) do%>
+          <%= group.name %></br>
+        <% end %>
       <% end %>
     </div>
+    <hr>
+  </div> <!-- CLOSE GROUPS ROW -->
+
+  <div class="row"> <!-- CONFIRMED FRIENDS -->
+    <h5 class="friend_labels">Friends</h5>
+    <!-- show only confirmed friendships -->
+    <!-- shows firendships made by current user -->
+    <% for friendship in @user.friendships.where(status: "confirm") %>
+      <%=h friendship.friend.username %><br>
+    <% end %>
+    <!-- shows firendships made by other user -->
+    <% for friendship in Friendship.where(status: "confirm", friend_id: @user.id) %>
+      <%=h friendship.user.username %>
+      <%= link_to friendship, :method => :delete do %>
+        <i class="glyphicon glyphicon-remove"></i>
+      <% end %>
+      <br>
+    <% end %>      
+  </div> <!-- CLOSE FRIENDS ROW -->
+
+
+</div> <!-- END LEFT COLUMN -->
+
+
+<div class="col-sm-6 right-col">
+  <!--  right column -->
+  <div class="row" id="parenting_phil">
+    <h5><strong>Parenting Philosophy:</strong></h5><h6><%= "#{@user.bio}" %></h6>
   </div>
-</div>
+  <div class="row post_display">
+    <% @user.posts.each do |p| %> 
+      <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
+      <p class="pcontent"><%= p.content %> </p>
+      <div>
+        <!-- convert group id to group name -->
+        <p class="group_display"><strong>Originally Posted in Group:</strong> 
+        <br><%= p.group.name %></p>
+        <!-- hide if not that users profile -->
+        <% if session[:user_id] == @user.id %>
+          <%= button_to "Edit Post", edit_post_path(p), class:"btn pairBtn post_btns btn-xs", method: :get %>
+          <%= button_to "Delete Post", post_path(p), class:"btn pairBtn post_btns btn-xs", method: :delete %>
+        <%end%>
+      </div>
+      <br>
+      <hr class="hrline">
+    <% end %>
+  </div>
+</div> <!-- END RIGHT COL -->
+
+
+</div> <!-- END CONTAINER

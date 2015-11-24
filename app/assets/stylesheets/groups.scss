@@ -15,6 +15,16 @@
 	margin-left: 50px;
 }
 .user_img {
-	max-height: 150px;
-	
+	max-height: 150px;	
+}
+.mem_card {
+	// outline: blue solid;
+	margin: 10px;
+	box-shadow: 0px 0px 5px 3px rgba(158, 158, 158, 0.53);
+	padding: 10px;
+	border-radius: 2px;
+	background-color: rgba(210, 210, 210, 0.43);
+}
+.mem_img {
+	max-height: 75px;
 }
