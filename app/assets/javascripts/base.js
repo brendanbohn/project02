@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$("#signup-form").hide();
 	$("#signin-form").hide();
+	$("#how-content").hide();
 
 	$(".close").click(function(e) {
 		e.preventDefault();
@@ -27,5 +28,10 @@ $(document).ready(function(){
 		componentHandler.upgradeDom();
 	});
 
-	
+	$('#how').click(function(){
+		console.log('clicked the how');
+		$("#how-content").show();
+		$('body').animate({scrollTop: $('#how-content').offset().top}, "slow");
+		return false;
+	});
 });
