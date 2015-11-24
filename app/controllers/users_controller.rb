@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @children = Child.all
+    @current_user= current_user
     render :index
   end
 
@@ -11,6 +12,8 @@ class UsersController < ApplicationController
     @compatabilities = Compatability.all
     @questionnaires = Questionnaire.all
     @groups = Group.all
+    @friendships = Friendship.all
+    @users = User.all
     render :show
   end
 
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # Tell the UserMailer to send a welcome email after save
-      # UserMailer.welcome_email(@user).deliver_now
+      UserMailer.welcome_email(@user).deliver_now
       login(@user) # <-- login the user
       redirect_to user_path(@user) # <-- go to show
     else

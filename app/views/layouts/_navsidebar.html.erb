@@ -8,7 +8,8 @@
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
         <!-- NAVBAR LINKS -->
         <%=link_to "Ocean", users_path, class:"btn" %>
-        <%=link_to "Cove", users_path, class:"btn btn-default" %>
+        <%=link_to "Cove", 'compatabilities/show', class:"btn btn-default" %>
+        <!-- I FEEL LIKE THAT LINK SHOULD BE NICER -->
 
         <button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
 
@@ -16,13 +17,6 @@
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
             for="demo-menu-lower-right">
 
-
-            <% @user.memberships.each do |group| %>
-              <% group = Group.find(group.group_id) %>
-              <%= link_to group_path(group.id) do%>
-                <li class="mdl-menu__item"><%= group.name %></li>
-              <%end%>
-            <% end %>
 
 
 
@@ -68,7 +62,12 @@
             <p>Groups</p>
             <p><%= "Joined on #{current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
 
-            
+            <% current_user.memberships.each do |group| %>
+              <% group = Group.find(group.group_id) %>
+              <%= link_to group_path(group.id) do%>
+                <%= group.name %></br>
+              <%end%>
+            <% end %>
 
           </div>
         </div>

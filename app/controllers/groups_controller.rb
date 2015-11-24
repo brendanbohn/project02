@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    p params[:id]
     @group = Group.find(params[:id])
     @groups = Group.all
     @posts = Post.where(group_id: @group).order(created_at: :DESC)
@@ -14,7 +15,7 @@ class GroupsController < ApplicationController
     @memberships = Membership.all
     @membership = Membership.new
     @event = Event.new
-    @events = Event.where(group_id: @group).order(created_at: :DESC)
+    @events = Event.where(group_id: @group).order(date: :DESC)
 
     
     

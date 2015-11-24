@@ -8,6 +8,8 @@
         <p><center><%= user.username%></center></p>
         <div class="compat">
           <center><%=score_star (compat current_user, user)%></center>
+          <br>
+          <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
         </div>
       
       <%end%>

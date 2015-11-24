@@ -36,10 +36,13 @@ gem 'ffaker'
 gem 'friendly_id'
 
 gem "paperclip", "~> 4.3"
+gem 'aws-sdk'
 
 gem 'bootstrap-material-design'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+
+gem "figaro"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -60,3 +63,4 @@ group :development do
   gem 'spring'
 end
 
+ruby '2.2.1'

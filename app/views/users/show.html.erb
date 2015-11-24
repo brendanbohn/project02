@@ -1,3 +1,5 @@
+<!-- SOMETHING JACKED UP WITH DIVS -->
+
 <div class="container">
 <!-- left column -->
   <div class="col-sm-4 user_data">
@@ -36,6 +38,23 @@
         </span>
       </div>
     </div>
+
+    <!-- list of firends -->
+    <div>
+     <h2>Friends</h2>
+      <ul>
+      <!-- change @user.* to function built on model for actual friends  -->
+        <% for friendship in @user.friendships %>
+          <li>
+            <%=h friendship.friend.username %>
+            (<%= link_to "remove", friendship, :method => :delete %>)
+          </li>
+        <% end %>
+      </ul>
+     <p><%= link_to "Find Friends", compatability_path %></p>
+    </div>
+
+
   </div>
 
 
