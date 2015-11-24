@@ -40,18 +40,46 @@
     </div>
 
     <!-- list of firends -->
+    <div class="row">
+      <div class="col-sm-6">
+       <h4>Friends</h4>
+        <ul>
+        <!-- show only confirmed friendships -->
+          <!-- shows firendships made by current user -->
+          <% for friendship in @user.friendships.where(status: "confirm") %>
+            <li>
+              <%=h friendship.friend.username %>
+              (<%= link_to "remove", friendship, :method => :delete %>)
+            </li>
+          <% end %>
+          <!-- shows firendships made by other user -->
+          <% for friendship in Friendship.where(status: "confirm", friend_id: @user.id) %>
+            <li>
+              <%=h friendship.user.username %>
+              (<%= link_to "remove", friendship, :method => :delete %>)
+            </li>
+          <% end %>
+        </ul>       
+      </div>
+      <div class="col-sm-6">
+       <% if session[:user_id] == @user.id %>
+         <h4>Pending Friends</h4>
+          <ul>
+          <!-- show pending firendship where current user is under friend_id  -->
+          <!-- this should only be visible by the user -->
+            <% for friendship in Friendship.where(status: "pending", friend_id: @user.id) %>
+              <li>
+                <%=h friendship.user.username %>
+                (<%= link_to "accept", friendship, :method => :put %>)
+                (<%= link_to "ignore", friendship, :method => :delete %>)
+              </li>
+            <% end %>
+          </ul> 
+          <p><%= link_to "Find Friends", compatability_path %></p>
+        <%end%>
+      </div>
+    </div>
     <div>
-     <h2>Friends</h2>
-      <ul>
-      <!-- change @user.* to function built on model for actual friends  -->
-        <% for friendship in @user.friendships %>
-          <li>
-            <%=h friendship.friend.username %>
-            (<%= link_to "remove", friendship, :method => :delete %>)
-          </li>
-        <% end %>
-      </ul>
-     <p><%= link_to "Find Friends", compatability_path %></p>
     </div>
 
 
