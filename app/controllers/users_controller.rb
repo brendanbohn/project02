@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       # Tell the UserMailer to send a welcome email after save
       UserMailer.welcome_email(@user).deliver_now
       login(@user) # <-- login the user
-      redirect_to user_path(@user) # <-- go to show
+      redirect_to new_questionnaire_path # <-- go to show
     else
 
       render :new
