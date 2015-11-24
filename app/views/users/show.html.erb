@@ -2,17 +2,19 @@
 <!-- left column -->
   <div class="col-sm-4 user_data">
     <div class="row">
+    <!-- hide if on current profile -->
+    <% if session[:user_id] != @user.id %>
       <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
       <div><%= image_tag @user.image, class:"user_img" %> </div><br>
       <div class="compat">
         <!-- compatability -->
-        <!-- hide if on current profile -->
         <% if session[:user_id] != @user.id %>
           <center><%=score_star (compat current_user, @user)%></center>
         <%end%>
       </div>
       <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
       <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+      <%end%>
       <!-- hide if not that users profile -->
       <div>
         <% if session[:user_id] == @user.id %>
@@ -50,14 +52,18 @@
           <!-- shows firendships made by current user -->
           <% for friendship in @user.friendships.where(status: "confirm") %>
             <li>
-              <%=h friendship.friend.username %>
+              <%= link_to user_path(friendship.friend_id) do%>
+                <%=h friendship.friend.username %>
+              <%end%>
               (<%= link_to "remove", friendship, :method => :delete %>)
             </li>
           <% end %>
           <!-- shows firendships made by other user -->
           <% for friendship in Friendship.where(status: "confirm", friend_id: @user.id) %>
-            <li>
-              <%=h friendship.user.username %>
+
+              <%= link_to user_path(friendship.user_id) do%>
+                <%=h friendship.user.username %>
+              <%end%>
               (<%= link_to "remove", friendship, :method => :delete %>)
             </li>
           <% end %>
@@ -71,7 +77,9 @@
           <!-- this should only be visible by the user -->
             <% for friendship in Friendship.where(status: "pending", friend_id: @user.id) %>
               <li>
-                <%=h friendship.user.username %>
+                <%= link_to user_path(friendship.user_id) do%>
+                  <%=h friendship.user.username %>
+                <%end%>
                 (<%= link_to "accept", friendship, :method => :put %>)
                 (<%= link_to "ignore", friendship, :method => :delete %>)
               </li>
