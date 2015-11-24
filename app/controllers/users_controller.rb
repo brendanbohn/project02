@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def create
+    @user = User.create( user_params )
+  end
+
   def show
     @user = User.friendly.find(params[:id])
     @current_user= current_user
@@ -65,8 +69,13 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
+  
+  def user_params
     params.require(:user).permit(:fullname, :username, :email, :password)
+  end
+
+  def user_params
+    params.require(:user).permit(:avatar)
   end
 
 end
