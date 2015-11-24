@@ -23,7 +23,9 @@
     <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
     <strong>Home City:</strong> <%= "#{@user.city}" %></p>
     <!-- hide if not that users profile -->
-    <%end%>
+  <% end %>
+
+
     <div class="row"> <!-- PENDING FRIENDS -->
       <% if session[:user_id] == @user.id %>
         <h5 class="friend_labels">Pending Friends</h5>

@@ -3,11 +3,13 @@
     <h3 align="center" id="tagline">A platform for collaborative parenting</h3>
   </div>
   <div align="center" id="">
-    <a href="#" id="signup-button" class="btn">Sign Up</a>
-    <a href="#" id="how" class="btn">Preview the Community<i class="glyphicon glyphicon-chevron-down"></i></a>
+    <a href="#how-content" id="signup-button" class="btn">Sign Up</a>
+    <a href="#" id="how" class="btn jumper">Preview the Community<i class="glyphicon glyphicon-chevron-down"></i></a>
     <a href="#"id="signin-button" class="btn">Sign In</a>
   </div>
 </div>
+
+<%= video_tag("tour_vid.mov", autoplay: true, :size => "720x480", class:"col-sm-8 col-sm-offset-2", :id => "how-content") %>
 
 <div id="signup-form" class="sign-form">
   <div id="signup-title"><h2 class="text-center">Sign Up<a href="#" class="pull-right close close-btn">close</a></h2></div>

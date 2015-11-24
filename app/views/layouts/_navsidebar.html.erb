@@ -60,6 +60,14 @@
           <%=link_to "New Group", new_group_path, class:"btn newbtns" %>
 
 
+
+        <div class="row">
+          <div class="col-sm-12 left-navigation">
+            <h6><b>Bio</b></h6>
+            <p><%= current_user[:bio] %></p>
+          </div>
+        </div>
+
           <p><em>Joined: <%= current_user.created_at.to_date.to_formatted_s(:long_ordinal) %></em></p>
 
           </div>

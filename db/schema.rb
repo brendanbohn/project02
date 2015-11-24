@@ -109,11 +109,11 @@ ActiveRecord::Schema.define(version: 20151124021723) do
     t.datetime "updated_at",          null: false
     t.string   "image"
     t.string   "slug"
-    t.text     "mission_statement"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "mission_statement"
   end
 
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree

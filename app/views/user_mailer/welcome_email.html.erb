@@ -4,14 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1 style="background-color:#0033cc; color:white; padding:20px; text-align:center">Welcome to co-parent.herokuapp.com, <%= @user.full_name %></h1>
-    <p>
+    <h1 style="background-color:#0033cc; color:white; padding:20px; text-align:center"> Welcome to Co-Parent, <small><%= @user.full_name %></small></h1>
+    <p style="margin-left:40px">
       You have successfully signed up to co-parent.herokuapp.com,
       your username is: <%= @user.username %>.<br>
     </p>
-    <p>
+    <p style="margin-left:40px">
       To login to the site, just follow this link: <%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p style="margin-left:40px">Thanks for joining and have a great day!</p>
   </body>
 </html>
