@@ -1,19 +1,22 @@
-<%= console %>
 <div class="row">
-  <% @users.each do |user| %>
-    <div class="col-sm-3">
-      <%= link_to user_path(user) do %>
-        <center><img style="width:100px;" src="<%=user.image%>" ></center>
-        </br>
-        <p><center><%= user.username%></center></p>
-        <div class="compat">
-          <center><%=score_star (compat current_user, user)%></center>
-          <br>
-          <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
-        </div>
-      
-      <%end%>
-    </div>
-  <%end%>
+  <div class="col-sm-offset-2 col-sm-8">
+    <% @users.each do |user| %>
+      <div class="add_user col-sm-3">
+        <center>
+        <%= link_to user_path(user) do %>
+          <img style="width:100px;" src="<%=user.image%>" >
+          </br>
+          <p><strong><%= user.username%></strong></p>
 
+          <div class="compat">
+            <%=score_star (compat current_user, user)%>
+            <br>
+            <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post, class:"btn" %>
+          </div>
+        
+        <%end%>
+        </center>
+      </div>
+    <%end%>
+  </div>
 </div>

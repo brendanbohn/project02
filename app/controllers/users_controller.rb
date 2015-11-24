@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @children = Child.all
+    @current_user= current_user
     render :index
   end
 
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
       # Tell the UserMailer to send a welcome email after save
       UserMailer.welcome_email(@user).deliver_now
       login(@user) # <-- login the user
-      redirect_to user_path(@user) # <-- go to show
+      redirect_to new_questionnaire_path # <-- go to show
     else
 
       render :new

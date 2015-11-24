@@ -8,18 +8,15 @@
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
         <!-- NAVBAR LINKS -->
         <%=link_to "Ocean", users_path, class:"btn" %>
-        <%=link_to "Cove", users_path, class:"btn btn-default" %>
-        <button id="demo-menu-lower-right" class="btn btn-default">Pools<i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
-        <!-- DROPDOWN OPTIONS -->
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-            for="demo-menu-lower-right">
-          <li class="mdl-menu__item">Some Action</li>
-          <li class="mdl-menu__item">Another Action</li>
-          <li class="mdl-menu__item">Yet Another Actiony Action</li>
-          <!-- WILL DYNAMICALLY PULL POOL NAMES TO POPULATE -->
-        </ul>
+        <%=link_to "Cove", '/compatabilities/show', class:"btn btn-default" %>
+        <!-- I FEEL LIKE THAT LINK SHOULD BE NICER -->
+
+
+
+
         <!-- SETTINGS DROPDOWN -->
-        <button id="settings-menu" class="btn btn-default"><i class="icon ion-gear-a" id="pools_glyph"></i><i class="glyphicon glyphicon-chevron-down" id="pools_glyph"></i></button>
+        <button id="settings-menu" class="mdl-button mdl-js-button mdl-button--icon"><i class="icon ion-gear-a"></i></button>
+
         <!-- SETTINGS DROPDOWN OPTIONS -->
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
             for="settings-menu">
@@ -46,24 +43,23 @@
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
+
             <h5><%= current_user[:full_name] %></h5>
-            <p><%= current_user[:username] %></p>
-          </div>
-        </div>
+            <small class="col-sm-offset-1"><%= current_user[:username] %></small><br><br>
+    
+            <h6 class="col-sm-offset-1">Groups</h6>
+            <% current_user.memberships.each do |group| %>
+              <% group = Group.find(group.group_id) %>
+              <%= link_to group_path(group.id) do%>
+                <%= group.name %></br>
+              <%end%>
+            <% end %>
+            <br>
 
-        <div class="row">
-          <div class="col-sm-12 left-navigation">
-            <p><%= current_user[:city] %></p>
-            <p><%= "Joined on #{current_user.created_at.to_date.to_formatted_s(:long_ordinal)}" %></p>
-          </div>
-        </div>
+          <%=link_to "New Post", new_post_path, class:"btn newbtns" %>
+          <%=link_to "New Group", new_group_path, class:"btn newbtns" %>
 
-        <div class="row">
-          <div class="col-sm-12 left-navigation">
-            <h6><b>Parenting Mission</b></h6>
-            <p><%= current_user[:mission_statement] %></p>
-          </div>
-        </div>
+
 
         <div class="row">
           <div class="col-sm-12 left-navigation">
@@ -72,10 +68,8 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-sm-12 left-navigation">
-            <%=link_to "View Full Profile", current_user, class:"btn btn-primary" %>
-            <p>Logout Button Here?</p>
+          <p><em>Joined: <%= current_user.created_at.to_date.to_formatted_s(:long_ordinal) %></em></p>
+
           </div>
         </div>
       </div>
