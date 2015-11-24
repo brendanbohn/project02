@@ -3,41 +3,17 @@
 <div class="container">
 
 <!-- left column -->
-  <div class="col-sm-4 user_data">
-    <div class="row">
-    <!-- hide if on current profile -->
-    <% if session[:user_id] != @user.id %>
-      <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br>
-      <div><%= image_tag @user.image, class:"user_img" %> </div><br>
-      <div class="compat">
-        <!-- compatability -->
-        <% if session[:user_id] != @user.id %>
-          <center><%=score_star (compat current_user, @user)%></center>
-        <%end%>
-      </div>
-      <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
-      <strong>Home City:</strong> <%= "#{@user.city}" %></p>
-      <%end%>
-      <!-- hide if not that users profile -->
-      <div>
-        <% if session[:user_id] == @user.id %>
-          <%=link_to "Edit profile", edit_user_path, class:"btn btn-sm btn-primary" %>
-          <hr>
-        <%end%>  
-      </div>
-    </div>
-   
-     
-    <div class="row">
-      GROUPS
-      <div>
-        <% @user.memberships.each do |group| %>
-          <% group = Group.find(group.group_id) %>
-          <%= link_to group_path(group.id) do%>
-            <p><%= group.name %></p>
-          <%end%>
-        <% end %>
-      </div>
+<div class="col-sm-4 user_data"> <!-- LEFT COLUMN -->
+
+
+  <div class="row"> <!-- USER DATA -->
+
+
+
+  <% if session[:user_id] != @user.id %>
+    <h4><%= "#{@user.full_name}" %> <small><%= "(#{@user.username})" %></small><br></h4>
+    <div>
+      <%= image_tag @user.image, class:"user_img" %>
     </div>
     <br>
     <div class="compat">
@@ -47,69 +23,33 @@
         <center><%=score_star (compat current_user, @user)%></center>
       <%end%>
     </div>
-    <hr class='tophr'>
-    <!-- list of firends -->
-    <div class="row">
-      <div class="col-sm-6">
-       <h4>Friends</h4>
-        <ul>
-        <!-- show only confirmed friendships -->
-          <!-- shows firendships made by current user -->
-          <% for friendship in @user.friendships.where(status: "confirm") %>
-            <li>
-              <%= link_to user_path(friendship.friend_id) do%>
-                <%=h friendship.friend.username %>
-              <%end%>
-              (<%= link_to "remove", friendship, :method => :delete %>)
-            </li>
-          <% end %>
-          <!-- shows firendships made by other user -->
-          <% for friendship in Friendship.where(status: "confirm", friend_id: @user.id) %>
+    <p><strong>Member Since:</strong> <%= "#{@user.created_at.to_date.to_formatted_s(:long_ordinal)}" %><br>
+    <strong>Home City:</strong> <%= "#{@user.city}" %></p>
+    <!-- hide if not that users profile -->
+  <% end %>
 
-              <%= link_to user_path(friendship.user_id) do%>
-                <%=h friendship.user.username %>
-              <%end%>
-              (<%= link_to "remove", friendship, :method => :delete %>)
-            </li>
+
+
+
+    <div class="row"> <!-- PENDING FRIENDS -->
+      <% if session[:user_id] == @user.id %>
+        <h5 class="friend_labels">Pending Friends</h5>
+        <!-- show pending firendship where current user is under friend_id  -->
+        <!-- this should only be visible by the user -->
+        <% for friendship in Friendship.where(status: "pending", friend_id: @user.id) %>
+          <%=h friendship.user.username %>
+          <!-- (<%= link_to "accept", friendship, :method => :put %>)
+          (<%= link_to "ignore", friendship, :method => :delete %>) -->
+
+          <%= link_to friendship, :method => :put do %>
+            <i class="glyphicon glyphicon-ok"></i>
           <% end %>
-        </ul>       
-      </div>
-      <div class="col-sm-6">
-       <% if session[:user_id] == @user.id %>
-         <h4>Pending Friends</h4>
-          <ul>
-          <!-- show pending firendship where current user is under friend_id  -->
-          <!-- this should only be visible by the user -->
-            <% for friendship in Friendship.where(status: "pending", friend_id: @user.id) %>
-              <li>
-                <%= link_to user_path(friendship.user_id) do%>
-                  <%=h friendship.user.username %>
-                <%end%>
-                (<%= link_to "accept", friendship, :method => :put %>)
-                (<%= link_to "ignore", friendship, :method => :delete %>)
-              </li>
-            <% end %>
-          </ul> 
-          <p><%= link_to "Find Friends", compatability_path %></p>
-        <%end%>
-      </div>
-    </div>
-    <div>
-    </div>
-    <div class="row post_display">
-      <% @user.posts.each do |p| %> 
-        <h4><%= link_to "#{p.title}", post_path(p), class:"post_title" %></h4>
-        <p class="pcontent"><%= p.content %> </p>
-        <div>
-          <!-- convert group id to group name -->
-          <p class="group_display"><strong>Originally Posted in Group:</strong> 
-          <br><%= p.group.name %></p>
-          <!-- hide if not that users profile -->
-          <% if session[:user_id] == @user.id %>
-          <%= button_to "Edit Post", edit_post_path(p), class:"btn pairBtn post_btns btn-xs", method: :get %>
-          <%= button_to "Delete Post", post_path(p), class:"btn pairBtn post_btns btn-xs", method: :delete %>
-          <%end%>
-        </div>
+          <%= link_to friendship, :method => :delete do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+
+
+
         <br>
         <% end %>
       <%end%>
